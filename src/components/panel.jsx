@@ -16,8 +16,6 @@ class Panel extends Component {
             .then(res => {
                 console.log(res)
                 this.setState({ foods: res.data })
-                console.log(this.state.foods)
-
             })
             .catch(err => {
                 console.log(err)
