@@ -1,0 +1,19 @@
+{
+  "foods": [
+    {
+      "id": 1,
+      "title": "pitzza",
+      "author": "30$"
+    },
+    {
+      "food": "1",
+      "price": "2",
+      "id": 2
+    },
+    {
+      "food": "1",
+      "price": "2",
+      "id": 3
+    }
+  ]
+}
