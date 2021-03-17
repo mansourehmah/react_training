@@ -42,7 +42,7 @@ class EditItem extends Component {
                         </div>
                     )
                 })}
-                {this.state.foodIndex == null ? '' : <PopUp foodIndex={this.state.foodIndex} foods={this.props.foods} />}
+                {this.state.popUp === false ? '' : <PopUp foodIndex={this.state.foodIndex} foods={this.props.foods} />}
             </div>
         </Fragment>);
     }

@@ -4,7 +4,8 @@ class PopUp extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            title : this.props.foods[this.props.foodIndex].title
+            title : this.props.foods[this.props.foodIndex].title,
+            price : this.props.foods[this.props.foodIndex].price
         }
     }
     changeValue = (value) =>{
