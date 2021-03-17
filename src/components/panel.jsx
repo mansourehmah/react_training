@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import ItemSlider from './panel/itemSlider'
 import EditItem from './panel/editItem'
+import DeleteItem from './panel/deleteItem'
 
 const axios = require('axios');
 
@@ -31,7 +32,7 @@ class Panel extends Component {
         return (
             <Fragment>
                 <div>
-                    <ItemSlider foods={this.state.foods} empty={this.state.foods.length > 0 ? false : true} />
+                    <ItemSlider foods={this.state.foods} />
                 </div>
                 <div className="container">
                     <h2>ویراش محصولات</h2>
@@ -48,6 +49,7 @@ class Panel extends Component {
                             <EditItem foods={this.state.foods} updateData={this.updateData} />
                         </div>
                         <div id="delete" className="tab-pane fade">
+                            <DeleteItem foods={this.state.foods} updateData={this.updateData} />
                         </div>
                         <div id="add" className="tab-pane fade">
                         </div>
