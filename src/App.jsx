@@ -1,10 +1,10 @@
-import Item from './components/item'
+import Panel from './components/panel'
 
 function App() {
   return (
     <>
       <div className="main">
-        <Item />
+        <Panel />
       </div>
     </>
   );
