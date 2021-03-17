@@ -2,33 +2,33 @@
   "foods": [
     {
       "image": "",
-      "title": "piittzz",
-      "price": "30$",
+      "title": "pizaa",
+      "price": "30",
       "id": 1
     },
     {
+      "id": 2,
       "image": "",
-      "title": "fhfj",
-      "price": "52",
+      "title": "lkjl",
+      "price": "8"
+    },
+    {
+      "image": "",
+      "title": "ilool",
+      "price": "56",
+      "id": 3
+    },
+    {
+      "image": "",
+      "title": "jo;",
+      "price": "85",
+      "id": 4
+    },
+    {
+      "image": "",
+      "title": "k;lk;l",
+      "price": "9",
       "id": 5
-    },
-    {
-      "image": "",
-      "title": "kjlkj",
-      "price": "jhkhk",
-      "id": 6
-    },
-    {
-      "image": "",
-      "title": "lkjlkjlk",
-      "price": "jkljl",
-      "id": 7
-    },
-    {
-      "image": "",
-      "title": "kjlkj",
-      "price": "ljlk",
-      "id": 8
     }
   ]
 }

@@ -30,6 +30,21 @@ body {
   background-color: #2d3142;
 }
 
+.main .item-slider .empty {
+  height: 250px;
+  padding: 15px 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+}
+
 .main .item-slider .slide {
   padding: 15px 45px;
   display: -webkit-box;
@@ -68,5 +83,178 @@ body {
   background-color: #bfc0c0;
   height: 100%;
   border-radius: 10px;
+}
+
+.main .tab-title {
+  text-align: right;
+  margin-top: 60px;
+  font-size: 22px;
+}
+
+.main .tab-des {
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.main .nav-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.main .nav-tabs > li.active > a {
+  background-color: #bfc0c0;
+  border: 1px solid #bfc0c0;
+}
+
+.main .nav-tabs > li > a {
+  color: #2d3142;
+  font-weight: bold;
+}
+
+.main .nav > li > a:hover {
+  background-color: #bfc0c0;
+  border: 1px solid #bfc0c0;
+}
+
+.main .edit-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main .edit-item .popUp {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.555);
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .edit-item .popUp .close {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  cursor: default;
+}
+
+.main .edit-item .popUp .popUp-wraper {
+  position: relative;
+  z-index: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+  height: 300px;
+  background-color: #2d3142;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.main .edit-item .popUp .popUp-wraper input {
+  height: 40px;
+  line-height: 40px;
+  margin: 0px 15px 25px;
+  font-size: 18px;
+  color: #2d3142;
+  font-weight: bold;
+  text-align: center;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border: none;
+  -webkit-box-shadow: 0px 0px 8px #4f5d75;
+          box-shadow: 0px 0px 8px #4f5d75;
+}
+
+.main .edit-item .popUp .popUp-wraper input:hover, .main .edit-item .popUp .popUp-wraper input:focus {
+  -webkit-box-shadow: 0px 0px 20px #798baa;
+          box-shadow: 0px 0px 20px #798baa;
+  border: none;
+  outline: none;
+}
+
+.main .edit-item .popUp .popUp-wraper button {
+  background-color: #ef8354;
+  padding: 15px 30px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.main .edit-item .popUp .popUp-wraper button:hover, .main .edit-item .popUp .popUp-wraper button:focus {
+  -webkit-box-shadow: 0px 0px 10px #798baa;
+          box-shadow: 0px 0px 10px #798baa;
+}
+
+.main .item-wraper {
+  width: 200px;
+  height: 300px;
+  background-color: #2d3142;
+  margin: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #bfc0c0;
+  position: relative;
+  cursor: pointer;
+}
+
+.main .item-wraper .hover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  background-color: #ef8254b9;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.main .item-wraper:hover .hover {
+  visibility: visible;
+  opacity: 1;
 }
 /*# sourceMappingURL=index.css.map */

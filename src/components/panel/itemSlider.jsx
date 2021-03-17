@@ -18,7 +18,9 @@ class ItemSlider extends Component {
         return (
 
             <div className="item-slider">
-                {this.props.foods.length <= 0 ? (<h2>محصولی وجود ندارد</h2>) : <Slider {...settings}>
+                {this.props.foods.length <= 0 ? (<div className="empty">
+                    <h2>محصولی وجود ندارد</h2>
+                </div>) : <Slider {...settings}>
                     {this.props.foods.map(food => {
                         return (
                             <div key={food.id} className="slide">

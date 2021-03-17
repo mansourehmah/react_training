@@ -19,27 +19,156 @@ body {
         color: #ef8354;
         background-color: #2d3142;
     }
-    .item-slider .slide {
-        padding: 15px 45px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        height: 250px;
-        &:focus {
-            outline: none;
-        }
-        h3,
-        h4 {
+    .item-slider {
+        .empty {
+            height: 250px;
+            padding: 15px 45px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #2d3142;
+            font-size: 18px;
         }
-        .slide-wraper {
-            padding: 15px;
-            background-color: #bfc0c0;
+        .slide {
+            padding: 15px 45px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height: 250px;
+            &:focus {
+                outline: none;
+            }
+            h3,
+            h4 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #2d3142;
+            }
+            .slide-wraper {
+                padding: 15px;
+                background-color: #bfc0c0;
+                height: 100%;
+                border-radius: 10px;
+            }
+        }
+    }
+    .tab-title {
+        text-align: right;
+        margin-top: 60px;
+        font-size: 22px;
+    }
+    .tab-des {
+        text-align: right;
+        margin-bottom: 30px;
+    }
+    .nav-tabs {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .nav-tabs > li.active > a {
+        background-color: #bfc0c0;
+        border: 1px solid #bfc0c0;
+    }
+    .nav-tabs > li > a {
+        color: #2d3142;
+        font-weight: bold;
+    }
+    .nav > li > a:hover {
+        background-color: #bfc0c0;
+        border: 1px solid #bfc0c0;
+    }
+    .edit-item {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        .popUp {
+            width: 100%;
             height: 100%;
-            border-radius: 10px;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.555);
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .close {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: 2;
+                cursor: default;
+            }
+            .popUp-wraper {
+                position: relative;
+                z-index: 3;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+                height: 300px;
+                background-color: #2d3142;
+                border-radius: 15px;
+                padding: 15px;
+                input {
+                    height: 40px;
+                    line-height: 40px;
+                    margin: 0px 15px 25px;
+                    font-size: 18px;
+                    color: #2d3142;
+                    font-weight: bold;
+                    text-align: center;
+                    transition: 0.4s;
+                    border: none;
+                    box-shadow: 0px 0px 8px #4f5d75;
+                    &:hover,
+                    &:focus {
+                        box-shadow: 0px 0px 20px #798baa;
+                        border: none;
+                        outline: none;
+                    }
+                }
+                button {
+                    background-color: #ef8354;
+                    padding: 15px 30px;
+                    border: none;
+                    outline: none;
+                    border-radius: 30px;
+                    font-weight: bold;
+                    font-size: 18px;
+                    transition: 0.4s;
+                    &:hover,
+                    &:focus {
+                        box-shadow: 0px 0px 10px #798baa;
+                    }
+                }
+            }
+        }
+    }
+    .item-wraper {
+        width: 200px;
+        height: 300px;
+        background-color: #2d3142;
+        margin: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #bfc0c0;
+        position: relative;
+        cursor: pointer;
+        .hover {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            background-color: #ef8254b9;
+            transition: 0.4s;
+        }
+        &:hover .hover {
+            visibility: visible;
+            opacity: 1;
         }
     }
 }

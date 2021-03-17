@@ -37,13 +37,13 @@ class Panel extends Component {
                     <ItemSlider foods={this.state.foods} />
                 </div>
                 <div className="container">
-                    <h2>ویراش محصولات</h2>
-                    <p>To make the tabs toggleable, add the data-toggle="tab" attribute to each link. Then add a .tab-pane className with a unique ID for every tab and wrap them inside a div element with className .tab-content.</p>
+                    <h2 className="tab-title">ویراش محصولات</h2>
+                    <p className="tab-des">در این قسمت می توانید محصولات خود را ویراش حذف و یا اضافه کنید</p>
 
                     <ul className="nav nav-tabs">
-                        <li className="active"><a data-toggle="tab" href="#edit">ویرایش</a></li>
                         <li><a data-toggle="tab" href="#delete">حذف محصول</a></li>
                         <li><a data-toggle="tab" href="#add">افزودن محصول</a></li>
+                        <li className="active"><a data-toggle="tab" href="#edit">ویرایش</a></li>
                     </ul>
 
                     <div className="tab-content">

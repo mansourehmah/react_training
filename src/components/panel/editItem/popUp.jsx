@@ -41,10 +41,13 @@ class PopUp extends Component {
         this.props.updateData(foods)
     }
     render() {
-        return (<div>
-            <div>
-                <input type="text" value={this.state.food.title} onChange={(e) => this.changeValue(e.target.value, 'title')} />
-                <input type="text" value={this.state.food.price} onChange={(e) => this.changeValue(e.target.value, 'price')} />
+        return (<div className="popUp">
+            <div className="close" onClick={this.props.closePopUp}></div>
+            <div className="popUp-wraper">
+                <label htmlFor="editTitle">عنوان محصول</label>
+                <input type="text" id="editTitle" value={this.state.food.title} onChange={(e) => this.changeValue(e.target.value, 'title')} />
+                <label htmlFor="editPrice">قیمت</label>
+                <input type="text" id="editPrice" value={this.state.food.price} onChange={(e) => this.changeValue(e.target.value, 'price')} />
                 <button onClick={this.submite}>ثبت تغییرات</button>
             </div>
 
