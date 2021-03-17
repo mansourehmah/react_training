@@ -1,10 +1,16 @@
 {
   "foods": [
     {
-      "id": 1,
       "image": "",
       "title": "piittzz",
-      "price": "30$"
+      "price": "30$",
+      "id": 1
+    },
+    {
+      "image": "",
+      "title": "fhfj",
+      "price": "52",
+      "id": 5
     }
   ]
 }
