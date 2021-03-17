@@ -33,6 +33,7 @@ class Panel extends Component {
         return (
             <Fragment>
                 <div>
+                    <h2 className="title">محصولات موجود</h2>
                     <ItemSlider foods={this.state.foods} />
                 </div>
                 <div className="container">

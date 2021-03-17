@@ -2,4 +2,44 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    &::selection {
+        background-color: #fb8c24ad;
+    }
+}
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #4f5d75;
+}
+.main {
+    color: white;
+    .title {
+        text-align: center;
+        padding: 15px 0;
+        color: #ef8354;
+        background-color: #2d3142;
+    }
+    .item-slider .slide {
+        padding: 15px 45px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 250px;
+        &:focus {
+            outline: none;
+        }
+        h3,
+        h4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #2d3142;
+        }
+        .slide-wraper {
+            padding: 15px;
+            background-color: #bfc0c0;
+            height: 100%;
+            border-radius: 10px;
+        }
+    }
 }

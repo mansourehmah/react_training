@@ -17,12 +17,16 @@ class ItemSlider extends Component {
         }
         return (
 
-            <div>
-                <h2>محصولات موجود</h2>
+            <div className="item-slider">
                 {this.props.foods.length <= 0 ? (<h2>محصولی وجود ندارد</h2>) : <Slider {...settings}>
                     {this.props.foods.map(food => {
                         return (
-                            <div key={food.id}>{food.title}</div>
+                            <div key={food.id} className="slide">
+                                <div className="slide-wraper">
+                                    <h3>{food.title}</h3>
+                                    <h4>{food.price}</h4>
+                                </div>
+                            </div>
                         )
                     })}
                 </Slider>}
