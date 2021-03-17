@@ -1,4 +1,4 @@
-import React, { Component , Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import ItemSlider from './panel/itemSlider'
 import EditItem from './panel/editItem'
 
@@ -10,6 +10,12 @@ class Panel extends Component {
         this.state = {
             foods: [],
         }
+    }
+
+    updateData = (val) => {
+        this.setState({
+            foods: val
+        })
     }
     componentDidMount() {
         axios.get('http://localhost:4000/foods')
@@ -39,7 +45,7 @@ class Panel extends Component {
 
                     <div className="tab-content">
                         <div id="edit" className="tab-pane fade in active">
-                            <EditItem foods={this.state.foods} />
+                            <EditItem foods={this.state.foods} updateData={this.updateData} />
                         </div>
                         <div id="delete" className="tab-pane fade">
                         </div>

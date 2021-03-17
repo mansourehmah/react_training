@@ -35,6 +35,10 @@ class PopUp extends Component {
     submite = () => {
         axios.put(`http://localhost:4000/foods/${this.state.food.id}`, this.state.food)
             .then(res => console.log(res.data));
+        let foods = this.props.foods
+        foods[this.props.foodIndex] = this.state.food
+        console.log(foods)
+        this.props.updateData(foods)
     }
     render() {
         return (<div>

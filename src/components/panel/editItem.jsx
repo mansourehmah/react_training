@@ -6,18 +6,18 @@ class EditItem extends Component {
         super()
         this.state = {
             popUp: false,
-            foodIndex : null
+            foodIndex: null
         }
     }
     setPopUp = (index) => {
-        this.setState({ popUp: !this.state.popUp , foodIndex : index})
+        this.setState({ popUp: !this.state.popUp, foodIndex: index })
     }
     render() {
         return (<Fragment>
             <div>
-                {this.props.foods.map((food , index )=> {
+                {this.props.foods.map((food, index) => {
                     return (
-                        <div key={'edit-' + food.id} onClick={()=>{this.setPopUp(index)}}>
+                        <div key={'edit-' + food.id} onClick={() => { this.setPopUp(index) }}>
                             <img src="" alt="" />
                             <h2>
                                 {food.id}
@@ -26,7 +26,7 @@ class EditItem extends Component {
                         </div>
                     )
                 })}
-                {this.state.popUp === false ? '' : <PopUp foodIndex={this.state.foodIndex} foods={this.props.foods} />}
+                {this.state.popUp === false ? '' : <PopUp foodIndex={this.state.foodIndex} foods={this.props.foods} updateData={this.props.updateData} />}
             </div>
         </Fragment>);
     }
