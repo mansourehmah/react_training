@@ -219,6 +219,76 @@ body {
           box-shadow: 0px 0px 10px #798baa;
 }
 
+.main .add-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 30px 15px;
+}
+
+.main .add-item .add-wraper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+  height: 300px;
+  background-color: #2d3142;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.main .add-item .add-wraper input {
+  height: 40px;
+  line-height: 40px;
+  margin: 0px 15px 25px;
+  font-size: 18px;
+  color: #2d3142;
+  font-weight: bold;
+  text-align: center;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border: none;
+  -webkit-box-shadow: 0px 0px 8px #4f5d75;
+          box-shadow: 0px 0px 8px #4f5d75;
+}
+
+.main .add-item .add-wraper input:hover, .main .add-item .add-wraper input:focus {
+  -webkit-box-shadow: 0px 0px 20px #798baa;
+          box-shadow: 0px 0px 20px #798baa;
+  border: none;
+  outline: none;
+}
+
+.main .add-item .add-wraper button {
+  background-color: #ef8354;
+  padding: 15px 30px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.main .add-item .add-wraper button:hover, .main .add-item .add-wraper button:focus {
+  -webkit-box-shadow: 0px 0px 10px #798baa;
+          box-shadow: 0px 0px 10px #798baa;
+}
+
 .main .item-wraper {
   width: 200px;
   height: 300px;

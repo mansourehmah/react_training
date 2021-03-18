@@ -49,10 +49,12 @@ class AddItem extends Component {
 
     render() {
         return (<Fragment>
-            <div>
-                <div>
-                    <input type="text" value={this.state.food.title} onChange={(e) => this.changeValue(e.target.value, 'title')} />
-                    <input type="text" value={this.state.food.price} onChange={(e) => this.changeValue(e.target.value, 'price')} />
+            <div className="add-item">
+                <div className="add-wraper">
+                    <label htmlFor="addTitle">عنوان محصول</label>
+                    <input type="text" id="addTitle" value={this.state.food.title} onChange={(e) => this.changeValue(e.target.value, 'title')} />
+                    <label htmlFor="addPrice">قیمت</label>
+                    <input type="text" id="addPrice" value={this.state.food.price} onChange={(e) => this.changeValue(e.target.value, 'price')} />
                     <button onClick={this.submite}>ثبت محصول</button>
                 </div>
             </div>
