@@ -1,34 +1,3 @@
 {
-  "foods": [
-    {
-      "image": "",
-      "title": "pizaa",
-      "price": "30",
-      "id": 1
-    },
-    {
-      "id": 2,
-      "image": "",
-      "title": "lkjl",
-      "price": "8"
-    },
-    {
-      "image": "",
-      "title": "ilool",
-      "price": "56",
-      "id": 3
-    },
-    {
-      "image": "",
-      "title": "jo;",
-      "price": "85",
-      "id": 4
-    },
-    {
-      "image": "",
-      "title": "k;lk;l",
-      "price": "9",
-      "id": 5
-    }
-  ]
+  "foods": []
 }
