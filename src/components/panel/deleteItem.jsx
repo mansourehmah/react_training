@@ -13,10 +13,10 @@ class DeleteItem extends Component {
     }
     render() {
         return (<Fragment>
-            <div>
+            <div className="delete-item">
                 {this.props.foods.map((food, index) => {
                     return (
-                        <div key={'delete-' + food.id} onClick={() => this.delete(food.id, index)}>
+                        <div key={'delete-' + food.id} onClick={() => this.delete(food.id, index)} className="item-wraper">
                             <img src="" alt="" />
                             <h2>
                                 {food.id}
