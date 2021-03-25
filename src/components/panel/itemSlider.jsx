@@ -27,6 +27,7 @@ class ItemSlider extends Component {
                                 <div className="slide-wraper">
                                     <h3>{food.title}</h3>
                                     <h4>{food.price}</h4>
+                                    <img src={food.image} alt={'image' + food.id} />
                                 </div>
                             </div>
                         )

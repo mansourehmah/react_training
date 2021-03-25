@@ -22,11 +22,11 @@ class EditItem extends Component {
                 {this.props.foods.map((food, index) => {
                     return (
                         <div key={'edit-' + food.id} onClick={() => { this.setPopUp(index) }} className="item-wraper">
-                            <img src="" alt="" />
                             <h2>
                                 {food.id}
                                 {food.title}</h2>
                             <h3><span>قیمت : </span>{food.price} <span>تومان</span></h3>
+                            <img src={food.image} alt={'image' + food.id} />
                             <div className="hover"></div>
                         </div>
                     )

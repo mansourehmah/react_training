@@ -17,11 +17,10 @@ class DeleteItem extends Component {
                 {this.props.foods.map((food, index) => {
                     return (
                         <div key={'delete-' + food.id} onClick={() => this.delete(food.id, index)} className="item-wraper">
-                            <img src="" alt="" />
                             <h2>
-                                {food.id}
                                 {food.title}</h2>
                             <h3>{food.price}</h3>
+                            <img src={food.image} alt={'image' + food.id} />
                         </div>
                     )
                 })}
