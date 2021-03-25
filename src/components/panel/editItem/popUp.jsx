@@ -49,10 +49,8 @@ class PopUp extends Component {
             this.state.food.image = 'https://cdn4.iconfinder.com/data/icons/ui-beast-3/32/ui-49-512.png'
         }
         axios.put(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods/${this.state.food.id}`, this.state.food)
-            .then(res => console.log(res.data));
         let foods = this.props.foods
         foods[this.props.foodIndex] = this.state.food
-        console.log(foods)
         this.props.updateData(foods)
         this.props.closePopUp()
     }
