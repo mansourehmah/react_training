@@ -23,7 +23,6 @@ class EditItem extends Component {
                     return (
                         <div key={'edit-' + food.id} onClick={() => { this.setPopUp(index) }} className="item-wraper">
                             <h2>
-                                {food.id}
                                 {food.title}</h2>
                             <h3><span>قیمت : </span>{food.price} <span>تومان</span></h3>
                             <img src={food.image} alt={'image' + food.id} />
