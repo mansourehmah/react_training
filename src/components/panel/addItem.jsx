@@ -58,7 +58,7 @@ class AddItem extends Component {
             }
         })
     }
-    validateForm = () => {
+    formValidation = () => {
         document.getElementById('addTitle').style.border = "none"
         document.getElementById('addPrice').style.border = "none"
 
@@ -90,18 +90,18 @@ class AddItem extends Component {
         }
     }
     componentDidMount() {
-        this.validateForm()
+        this.formValidation()
     }
     render() {
         return (<Fragment>
             <div className="add-item">
                 <div className="add-wraper">
                     <label htmlFor="addTitle">عنوان محصول</label>
-                    <input type="text" id="addTitle" value={this.state.food.title} onKeyUp={this.validateForm} onChange={(e) => this.changeValue(e.target.value, 'title')} />
+                    <input type="text" id="addTitle" value={this.state.food.title} onKeyUp={this.formValidation} onChange={(e) => this.changeValue(e.target.value, 'title')} />
                     <label htmlFor="addPrice">قیمت</label>
-                    <input type="text" id="addPrice" value={this.state.food.price} onKeyUp={this.validateForm} onChange={(e) => this.changeValue(e.target.value, 'price')} />
+                    <input type="text" id="addPrice" value={this.state.food.price} onKeyUp={this.formValidation} onChange={(e) => this.changeValue(e.target.value, 'price')} />
                     <span>آدرس عکس را وارد کنید</span>
-                    <input type="text" value={this.state.food.image} onKeyUp={this.validateForm} onChange={(e) => this.changeValue(e.target.value, 'image')} />
+                    <input type="text" value={this.state.food.image} onKeyUp={this.formValidation} onChange={(e) => this.changeValue(e.target.value, 'image')} />
                     <button onClick={this.submite} disabled={this.state.disable}>ثبت محصول</button>
                 </div>
             </div>
