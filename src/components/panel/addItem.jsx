@@ -11,6 +11,7 @@ class AddItem extends Component {
                 title: '',
                 price: '',
             },
+            disable: true
         }
     }
 
@@ -57,18 +58,51 @@ class AddItem extends Component {
             }
         })
     }
+    validateForm = () => {
+        document.getElementById('addTitle').style.border = "none"
+        document.getElementById('addPrice').style.border = "none"
 
+        let disable = 0
+        if (this.state.food.title.length < 2 || this.state.food.title.length > 30) {
+            document.getElementById('addTitle').style.border = "1px solid red"
+            disable++
+        }
+        if (this.state.food.price.length == 0 || this.state.food.price.search(/[a-z]/g) >= 0) {
+            document.getElementById('addPrice').style.border = "1px solid red"
+            disable++
+        }
+        if (this.state.food.image.indexOf('script') >= 0 || this.state.food.title.indexOf('script') >= 0 || this.state.food.price.indexOf('script') >= 0) {
+            alert('adam bash :))')
+            this.setState({
+                food: {
+                    image: '',
+                    title: '',
+                    price: ''
+                }
+            })
+            disable++
+        }
+        if (disable == 0) {
+            this.setState({ disable: false })
+        }
+        else {
+            this.setState({ disable: true })
+        }
+    }
+    componentDidMount() {
+        this.validateForm()
+    }
     render() {
         return (<Fragment>
             <div className="add-item">
                 <div className="add-wraper">
                     <label htmlFor="addTitle">عنوان محصول</label>
-                    <input type="text" id="addTitle" value={this.state.food.title} onChange={(e) => this.changeValue(e.target.value, 'title')} />
+                    <input type="text" id="addTitle" value={this.state.food.title} onKeyUp={this.validateForm} onChange={(e) => this.changeValue(e.target.value, 'title')} />
                     <label htmlFor="addPrice">قیمت</label>
-                    <input type="text" id="addPrice" value={this.state.food.price} onChange={(e) => this.changeValue(e.target.value, 'price')} />
+                    <input type="text" id="addPrice" value={this.state.food.price} onKeyUp={this.validateForm} onChange={(e) => this.changeValue(e.target.value, 'price')} />
                     <span>آدرس عکس را وارد کنید</span>
-                    <input type="text" value={this.state.food.image} onChange={(e) => this.changeValue(e.target.value, 'image')} />
-                    <button onClick={this.submite}>ثبت محصول</button>
+                    <input type="text" value={this.state.food.image} onKeyUp={this.validateForm} onChange={(e) => this.changeValue(e.target.value, 'image')} />
+                    <button onClick={this.submite} disabled={this.state.disable}>ثبت محصول</button>
                 </div>
             </div>
         </Fragment>);

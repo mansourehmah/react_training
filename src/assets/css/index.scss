@@ -152,6 +152,11 @@ body {
                     &:focus {
                         box-shadow: 0px 0px 10px #798baa;
                     }
+                    &:disabled {
+                        cursor: not-allowed;
+                        box-shadow: none;
+                        background-color: #fcbca2;
+                    }
                 }
             }
         }
@@ -205,6 +210,11 @@ body {
                 &:hover,
                 &:focus {
                     box-shadow: 0px 0px 10px #798baa;
+                }
+                &:disabled {
+                    cursor: not-allowed;
+                    box-shadow: none;
+                    background-color: #fcbca2;
                 }
             }
         }
