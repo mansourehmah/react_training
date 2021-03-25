@@ -48,7 +48,7 @@ class AddItem extends Component {
         // foodFormData.append('price' , this.state.food.price)
 
 
-        console.log(foodFormData.get('title'))
+        // console.log(foodFormData.get('title'))
         axios.post(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods`, this.state.food)
             .then(res => console.log(res.data));
         let foods = this.props.foods
