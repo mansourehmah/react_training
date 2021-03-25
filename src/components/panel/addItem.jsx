@@ -33,7 +33,7 @@ class AddItem extends Component {
         }
     }
     submite = () => {
-        axios.post(`http://api.mocki.io/v1/754fda57/`, this.state.food)
+        axios.post(`http://localhost:4000/foods`, this.state.food)
             .then(res => console.log(res.data));
         let foods = this.props.foods
         foods.push(this.state.food)

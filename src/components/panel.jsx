@@ -20,7 +20,7 @@ class Panel extends Component {
         })
     }
     componentDidMount() {
-        axios.get('http://api.mocki.io/v1/754fda57/')
+        axios.get('http://localhost:4000/foods')
             .then(res => {
                 console.log(res)
                 this.setState({ foods: res.data })
