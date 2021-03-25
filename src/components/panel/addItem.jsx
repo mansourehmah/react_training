@@ -42,12 +42,6 @@ class AddItem extends Component {
     }
     submite = () => {
         if (this.state.food.image === '') {
-            // this.setState({
-            //     food: {
-            //         ...this.state.food,
-            //         image: 'https://www.iconsdb.com/icons/preview/black/error-7-xxl.png'
-            //     }
-            // })
             this.state.food.image = 'https://cdn4.iconfinder.com/data/icons/ui-beast-3/32/ui-49-512.png'
         }
         axios.post(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods`, this.state.food)

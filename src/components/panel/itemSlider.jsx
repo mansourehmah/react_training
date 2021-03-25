@@ -16,7 +16,6 @@ class ItemSlider extends Component {
             settings.slidesToShow = this.props.foods.length
         }
         return (
-
             <div className="item-slider">
                 {this.props.foods.length <= 0 ? (<div className="empty">
                     <h2>محصولی وجود ندارد</h2>
