@@ -6,10 +6,10 @@ class PopUp extends Component {
         super(props)
         this.state = {
             food: {
-                id: this.props.foods[this.props.foodIndex].id,
                 image: this.props.foods[this.props.foodIndex].image,
                 title: this.props.foods[this.props.foodIndex].title,
                 price: this.props.foods[this.props.foodIndex].price,
+                id: this.props.foods[this.props.foodIndex].id,
             },
         }
     }
@@ -39,6 +39,7 @@ class PopUp extends Component {
         foods[this.props.foodIndex] = this.state.food
         console.log(foods)
         this.props.updateData(foods)
+        this.props.closePopUp()
     }
     render() {
         return (<div className="popUp">
