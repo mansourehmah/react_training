@@ -33,7 +33,7 @@ class PopUp extends Component {
     }
 
     submite = () => {
-        axios.put(`http://localhost:4000/foods/${this.state.food.id}`, this.state.food)
+        axios.put(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods/${this.state.food.id}`, this.state.food)
             .then(res => console.log(res.data));
         let foods = this.props.foods
         foods[this.props.foodIndex] = this.state.food

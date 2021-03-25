@@ -20,9 +20,9 @@ class Panel extends Component {
         })
     }
     componentDidMount() {
-        axios.get('http://localhost:4000/foods')
+        axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods')
             .then(res => {
-                console.log(res)
+                console.log((res.data))
                 this.setState({ foods: res.data })
             })
             .catch(err => {

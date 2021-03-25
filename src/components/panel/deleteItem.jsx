@@ -5,7 +5,7 @@ class DeleteItem extends Component {
 
     delete = (id, index) => {
         console.log(id)
-        axios.delete(`http://api.mocki.io/v1/754fda57/${id}`)
+        axios.delete(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods/${id}`)
             .then(res => console.log(res.data));
         let foods = this.props.foods
         foods.splice(index, 1)
