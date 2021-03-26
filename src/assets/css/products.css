@@ -1,43 +1,5 @@
 @charset "UTF-8";
-@font-face {
-  font-family: "Iran-Sans";
-  src: url(../font/IRANSans.ttf);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: "Iran-Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
-}
-
-*::-moz-selection {
-  background-color: #fb8c24ad;
-}
-
-*::selection {
-  background-color: #fb8c24ad;
-}
-
-body {
-  min-height: 100vh;
-  overflow-x: hidden;
-  background-color: #4f5d75;
-}
-
-.main {
-  color: white;
-}
-
-.main .title {
-  text-align: center;
-  padding: 15px 0;
-  color: #ef8354;
-  background-color: #2d3142;
-}
-
-.main .item-slider .empty {
+.products .item-slider .empty {
   height: 250px;
   padding: 15px 45px;
   display: -webkit-box;
@@ -52,17 +14,17 @@ body {
   font-size: 18px;
 }
 
-.main .item-slider .slide {
+.products .item-slider .slide {
   padding: 15px 45px;
   height: 250px;
 }
 
-.main .item-slider .slide:focus {
+.products .item-slider .slide:focus {
   outline: none;
 }
 
-.main .item-slider .slide h3,
-.main .item-slider .slide h4 {
+.products .item-slider .slide h3,
+.products .item-slider .slide h4 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -75,7 +37,7 @@ body {
   color: #2d3142;
 }
 
-.main .item-slider .slide .slide-wraper {
+.products .item-slider .slide .slide-wraper {
   padding: 15px;
   background-color: #bfc0c0;
   height: 100%;
@@ -92,7 +54,7 @@ body {
           flex-direction: column;
 }
 
-.main .item-slider .slide .slide-wraper img {
+.products .item-slider .slide .slide-wraper img {
   width: 80px;
   height: 80px;
   -o-object-fit: cover;
@@ -100,18 +62,18 @@ body {
   border-radius: 15px;
 }
 
-.main .tab-title {
+.products .tab-title {
   text-align: right;
   margin-top: 60px;
   font-size: 22px;
 }
 
-.main .tab-des {
+.products .tab-des {
   text-align: right;
   margin-bottom: 30px;
 }
 
-.main .nav-tabs {
+.products .nav-tabs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -120,22 +82,22 @@ body {
           justify-content: flex-end;
 }
 
-.main .nav-tabs > li.active > a {
+.products .nav-tabs > li.active > a {
   background-color: #bfc0c0;
   border: 1px solid #bfc0c0;
 }
 
-.main .nav-tabs > li > a {
+.products .nav-tabs > li > a {
   color: #2d3142;
   font-weight: bold;
 }
 
-.main .nav > li > a:hover {
+.products .nav > li > a:hover {
   background-color: #bfc0c0;
   border: 1px solid #bfc0c0;
 }
 
-.main .edit-item {
+.products .edit-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -146,7 +108,7 @@ body {
       flex-wrap: wrap;
 }
 
-.main .add-item {
+.products .add-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -156,7 +118,7 @@ body {
   padding: 30px 15px;
 }
 
-.main .add-item .add-wraper {
+.products .add-item .add-wraper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -177,13 +139,13 @@ body {
   padding: 15px;
 }
 
-.main .add-item .add-wraper span {
+.products .add-item .add-wraper span {
   font-size: 12px;
   text-align: center;
   padding-bottom: 15px;
 }
 
-.main .add-item .add-wraper input {
+.products .add-item .add-wraper input {
   height: 40px;
   line-height: 40px;
   margin: 0px 15px 25px;
@@ -198,14 +160,14 @@ body {
           box-shadow: 0px 0px 8px #4f5d75;
 }
 
-.main .add-item .add-wraper input:hover, .main .add-item .add-wraper input:focus {
+.products .add-item .add-wraper input:hover, .products .add-item .add-wraper input:focus {
   -webkit-box-shadow: 0px 0px 20px #798baa;
           box-shadow: 0px 0px 20px #798baa;
   border: none;
   outline: none;
 }
 
-.main .add-item .add-wraper button {
+.products .add-item .add-wraper button {
   background-color: #ef8354;
   padding: 15px 30px;
   border: none;
@@ -217,19 +179,19 @@ body {
   transition: 0.4s;
 }
 
-.main .add-item .add-wraper button:hover, .main .add-item .add-wraper button:focus {
+.products .add-item .add-wraper button:hover, .products .add-item .add-wraper button:focus {
   -webkit-box-shadow: 0px 0px 10px #798baa;
           box-shadow: 0px 0px 10px #798baa;
 }
 
-.main .add-item .add-wraper button:disabled {
+.products .add-item .add-wraper button:disabled {
   cursor: not-allowed;
   -webkit-box-shadow: none;
           box-shadow: none;
   background-color: #fcbca2;
 }
 
-.main .delete-item {
+.products .delete-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -240,7 +202,7 @@ body {
       flex-wrap: wrap;
 }
 
-.main .delete-item .item-wraper::after {
+.products .delete-item .item-wraper::after {
   content: "برای حذف محصول کلیک کنید";
   display: block;
   position: absolute;
@@ -266,12 +228,12 @@ body {
   transition: 0.4s;
 }
 
-.main .delete-item .item-wraper:hover::after {
+.products .delete-item .item-wraper:hover::after {
   opacity: 1;
   visibility: visible;
 }
 
-.main .item-wraper {
+.products .item-wraper {
   position: relative;
   width: 200px;
   height: 300px;
@@ -295,7 +257,7 @@ body {
   cursor: pointer;
 }
 
-.main .item-wraper img {
+.products .item-wraper img {
   width: 80px;
   height: 80px;
   -o-object-fit: cover;
@@ -303,12 +265,12 @@ body {
   border-radius: 15px;
 }
 
-.main .item-wraper h3 {
+.products .item-wraper h3 {
   font-size: 12px;
   margin-top: 0;
 }
 
-.main .item-wraper .hover {
+.products .item-wraper .hover {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -319,12 +281,12 @@ body {
   transition: 0.4s;
 }
 
-.main .item-wraper:hover .hover {
+.products .item-wraper:hover .hover {
   visibility: visible;
   opacity: 1;
 }
 
-.main .popUp {
+.products .popUp {
   width: 100%;
   height: 100%;
   top: 0;
@@ -342,7 +304,7 @@ body {
           align-items: center;
 }
 
-.main .popUp .close {
+.products .popUp .close {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -350,12 +312,12 @@ body {
   cursor: none;
 }
 
-.main .popUp #close-icon,
-.main .popUp #delete-close-icon {
+.products .popUp #close-icon,
+.products .popUp #delete-close-icon {
   position: absolute;
 }
 
-.main .popUp .popUp-wraper {
+.products .popUp .popUp-wraper {
   position: relative;
   z-index: 3;
   display: -webkit-box;
@@ -378,7 +340,7 @@ body {
   padding: 15px;
 }
 
-.main .popUp .popUp-wraper input {
+.products .popUp .popUp-wraper input {
   height: 40px;
   line-height: 40px;
   margin: 0px 15px 25px;
@@ -393,14 +355,14 @@ body {
           box-shadow: 0px 0px 8px #4f5d75;
 }
 
-.main .popUp .popUp-wraper input:hover, .main .popUp .popUp-wraper input:focus {
+.products .popUp .popUp-wraper input:hover, .products .popUp .popUp-wraper input:focus {
   -webkit-box-shadow: 0px 0px 20px #798baa;
           box-shadow: 0px 0px 20px #798baa;
   border: none;
   outline: none;
 }
 
-.main .popUp .popUp-wraper button {
+.products .popUp .popUp-wraper button {
   background-color: #ef8354;
   padding: 15px 30px;
   border: none;
@@ -413,15 +375,15 @@ body {
   margin: 7px;
 }
 
-.main .popUp .popUp-wraper button:hover, .main .popUp .popUp-wraper button:focus {
+.products .popUp .popUp-wraper button:hover, .products .popUp .popUp-wraper button:focus {
   -webkit-box-shadow: 0px 0px 10px #798baa;
           box-shadow: 0px 0px 10px #798baa;
 }
 
-.main .popUp .popUp-wraper button:disabled {
+.products .popUp .popUp-wraper button:disabled {
   cursor: not-allowed;
   -webkit-box-shadow: none;
           box-shadow: none;
   background-color: #fcbca2;
 }
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=products.css.map */

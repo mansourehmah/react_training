@@ -1,5 +1,5 @@
 import Panel from './components/panel'
-import './assets/css/index.css'
+import './assets/css/master.css'
 
 function App() {
   return (

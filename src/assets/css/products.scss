@@ -1,29 +1,4 @@
-@font-face {
-    font-family: "Iran-Sans";
-    src: url(../font/IRANSans.ttf);
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Iran-Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
-    &::selection {
-        background-color: #fb8c24ad;
-    }
-}
-body {
-    min-height: 100vh;
-    overflow-x: hidden;
-    background-color: #4f5d75;
-}
-.main {
-    color: white;
-    .title {
-        text-align: center;
-        padding: 15px 0;
-        color: #ef8354;
-        background-color: #2d3142;
-    }
+.products {
     .item-slider {
         .empty {
             height: 250px;

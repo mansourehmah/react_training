@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "Iran-Sans";
+  src: url(../font/IRANSans.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Iran-Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+*::-moz-selection {
+  background-color: #fb8c24ad;
+}
+
+*::selection {
+  background-color: #fb8c24ad;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #4f5d75;
+}
+
+.main {
+  color: white;
+}
+
+.main .title {
+  text-align: center;
+  padding: 15px 0;
+  color: #ef8354;
+  background-color: #2d3142;
+}
+/*# sourceMappingURL=master.css.map */
