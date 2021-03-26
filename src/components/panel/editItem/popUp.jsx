@@ -52,14 +52,20 @@ class PopUp extends Component {
         if (this.state.food.image === '') {
             this.state.food.image = 'https://cdn4.iconfinder.com/data/icons/ui-beast-3/32/ui-49-512.png'
         }
+        this.props.editLoading(true)
         axios.put(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods/${this.state.food.id}`, this.state.food)
             .then(() => {
                 NotificationManager.success('تغییرات با موفقیت ذخیره شد')
                 axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods').then((res) => {
                     this.props.updateData(res.data)
+                    this.props.editLoading(false)
                 })
             })
-            .catch(() => NotificationManager.error('خطایی پیش آمده'))
+            .catch(() => {
+                NotificationManager.error('خطایی پیش آمده')
+                this.props.editLoading(false)
+            }
+            )
 
     }
 

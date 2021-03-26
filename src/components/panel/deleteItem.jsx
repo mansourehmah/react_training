@@ -43,7 +43,7 @@ class DeleteItem extends Component {
                     )
                 })}
             </div>
-            {this.state.popUp === false ? '' : <DeletePopUp closePopUp={this.closePopUp} id={this.state.id} foodIndex={this.state.foodIndex} foods={this.props.foods} updateData={this.props.updateData} />}
+            {this.state.popUp === false ? '' : <DeletePopUp editLoading={this.props.editLoading} closePopUp={this.closePopUp} id={this.state.id} foodIndex={this.state.foodIndex} foods={this.props.foods} updateData={this.props.updateData} />}
         </Fragment>);
     }
 }

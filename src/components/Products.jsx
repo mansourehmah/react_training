@@ -7,20 +7,21 @@ import AddItem from './panel/addItem'
 const axios = require('axios');
 
 class Products extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             foods: [],
         }
     }
     updateData = (val) => {
         this.setState({ foods: val })
-
     }
     componentDidMount() {
+        this.props.editLoading(true)
         axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods')
             .then(res => {
                 this.setState({ foods: res.data })
+                this.props.editLoading(false)
             })
     }
     render() {
@@ -43,13 +44,13 @@ class Products extends Component {
 
                     <div className="tab-content">
                         <div id="edit" className="tab-pane fade in active">
-                            <EditItem foods={this.state.foods} updateData={this.updateData} />
+                            <EditItem foods={this.state.foods} updateData={this.updateData} editLoading={this.props.editLoading} />
                         </div>
                         <div id="delete" className="tab-pane fade">
-                            <DeleteItem foods={this.state.foods} updateData={this.updateData} />
+                            <DeleteItem foods={this.state.foods} updateData={this.updateData} editLoading={this.props.editLoading} />
                         </div>
                         <div id="add" className="tab-pane fade">
-                            <AddItem foods={this.state.foods} updateData={this.updateData} />
+                            <AddItem foods={this.state.foods} updateData={this.updateData} editLoading={this.props.editLoading} />
                         </div>
                     </div>
                 </div>

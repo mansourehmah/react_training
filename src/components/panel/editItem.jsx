@@ -30,7 +30,7 @@ class EditItem extends Component {
                         </div>
                     )
                 })}
-                {this.state.popUp === false ? '' : <PopUp closePopUp={this.closePopUp} foodIndex={this.state.foodIndex} foods={this.props.foods} updateData={this.props.updateData} />}
+                {this.state.popUp === false ? '' : <PopUp editLoading={this.props.editLoading} closePopUp={this.closePopUp} foodIndex={this.state.foodIndex} foods={this.props.foods} updateData={this.props.updateData} />}
             </div>
         </Fragment>);
     }

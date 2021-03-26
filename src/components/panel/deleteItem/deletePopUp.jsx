@@ -6,6 +6,7 @@ const axios = require('axios');
 class deletePopUp extends Component {
 
     delete = () => {
+        this.props.editLoading(true)
         axios.delete(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods/${this.props.id}`)
             .then(() => {
 
@@ -13,8 +14,13 @@ class deletePopUp extends Component {
                     this.props.updateData(res.data)
                 })
                 this.props.closePopUp('success')
+                this.props.editLoading(false)
             })
-            .catch(() => this.props.closePopUp())
+            .catch(() => {
+                this.props.closePopUp()
+                this.props.editLoading(false)
+            })
+
     }
     mouseHandle = (event) => {
         let x = event.clientX
