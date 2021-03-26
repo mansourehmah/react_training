@@ -18,14 +18,18 @@
   padding: 15px;
 }
 
-.orders .orders-wraper .orderCard .orderList-title {
+.orders .orders-wraper .orderCard .orderList {
+  margin-bottom: 10px;
+}
+
+.orders .orders-wraper .orderCard .order-title {
   text-align: right;
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.orders .orders-wraper .orderCard .orderList-wraper {
+.orders .orders-wraper .orderCard .order-wraper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,7 +42,8 @@
           align-items: flex-end;
 }
 
-.orders .orders-wraper .orderCard .orderList-wraper span {
+.orders .orders-wraper .orderCard .order-wraper span {
   padding: 2px 5px;
+  direction: rtl;
 }
 /*# sourceMappingURL=order.css.map */

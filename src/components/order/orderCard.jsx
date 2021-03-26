@@ -7,8 +7,8 @@ class OrderCard extends Component {
             <Fragment>
                 <div className="orderCard">
                     <div className="orderList">
-                        <span className="orderList-title"> : محصولات سفارش داده شده</span>
-                        <div className="orderList-wraper">
+                        <span className="order-title"> : محصولات سفارش داده شده</span>
+                        <div className="order-wraper">
                             {this.props.order.orderList.map((order, index) => {
                                 return (
                                     <span key={'orderlist-' + index}>
@@ -16,6 +16,13 @@ class OrderCard extends Component {
                                     </span>
                                 )
                             })}
+                        </div>
+                    </div>
+                    <div className="time">
+                        <span className="order-title">: زمان ثبت سفارش</span>
+                        <div className="order-wraper">
+                            <span>ساعت : {this.props.order.time}</span>
+                            <span>تاریخ : {this.props.order.date}</span>
                         </div>
                     </div>
                 </div>
