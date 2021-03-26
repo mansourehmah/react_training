@@ -107,7 +107,11 @@ body {
                 height: 100%;
                 position: absolute;
                 z-index: 2;
-                cursor: default;
+                cursor: none;
+            }
+            #close-icon {
+                // display: none;
+                position: absolute;
             }
             .popUp-wraper {
                 position: relative;

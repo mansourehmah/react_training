@@ -169,7 +169,11 @@ body {
   height: 100%;
   position: absolute;
   z-index: 2;
-  cursor: default;
+  cursor: none;
+}
+
+.main .edit-item .popUp #close-icon {
+  position: absolute;
 }
 
 .main .edit-item .popUp .popUp-wraper {

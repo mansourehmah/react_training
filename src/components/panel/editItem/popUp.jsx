@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import FontAwesome from 'react-fontawesome';
+
 const axios = require('axios');
 
 class PopUp extends Component {
@@ -88,12 +90,27 @@ class PopUp extends Component {
 
         }
     }
+    mouseHandle = (event) => {
+        let x = event.clientX
+        let y = event.clientY
+        document.getElementById('close-icon').style.display = "block"
+        document.getElementById('close-icon').style.left = x - 5 + 'px'
+        document.getElementById('close-icon').style.top = y - 5 + 'px'
+    }
+    mouseLeaveHandle = () => {
+        document.getElementById('close-icon').style.display = "none"
+    }
     render() {
         return (
             <Fragment>
                 <NotificationContainer />
                 <div className="popUp">
-                    <div className="close" onClick={this.props.closePopUp}></div>
+                    <div className="close" id="close" onMouseLeave={this.mouseLeaveHandle} onMouseMove={this.mouseHandle} onClick={this.props.closePopUp}></div>
+                    <FontAwesome
+                        id="close-icon"
+                        name="close"
+                        size="2x"
+                    />
                     <div className="popUp-wraper">
                         <label htmlFor="editTitle">عنوان محصول</label>
                         <input type="text" id="editTitle" value={this.state.food.title} onKeyUp={this.formValidation} onChange={(e) => this.changeValue(e.target.value, 'title')} />
