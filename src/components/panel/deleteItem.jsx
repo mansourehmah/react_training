@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
+import DeletePopUp from './deleteItem/deletePopUp'
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-import DeletePopUp from './deleteItem/deletePopUp'
 
 class DeleteItem extends Component {
     constructor() {
@@ -16,8 +16,17 @@ class DeleteItem extends Component {
     setPopUp = (id, index) => {
         this.setState({ popUp: !this.state.popUp, foodIndex: index, id: parseInt(id) })
     }
-    closePopUp = () => {
-        this.setState({ popUp: !this.state.popUp })
+    closePopUp = (val) => {
+        if (val === 'success') {
+            NotificationManager.success('محصول مورد نظر با موفقیت حذف شد')
+            this.setState({ popUp: !this.state.popUp })
+        }
+        else if (val === 'error') (
+            NotificationManager.error('خطایی پیش آمده')
+        )
+        else {
+            this.setState({ popUp: !this.state.popUp })
+        }
     }
     render() {
         return (<Fragment>

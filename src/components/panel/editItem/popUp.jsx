@@ -72,7 +72,7 @@ class PopUp extends Component {
             document.getElementById('editTitle').style.border = "1px solid red"
             disable++
         }
-        if (this.state.food.price.length == 0 || this.state.food.price.search(/[a-z]/g) >= 0) {
+        if (this.state.food.price.length === 0 || this.state.food.price.search(/[a-z]/g) >= 0) {
             document.getElementById('editPrice').style.border = "1px solid red"
             disable++
         }

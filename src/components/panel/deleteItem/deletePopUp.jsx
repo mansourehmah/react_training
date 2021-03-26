@@ -1,6 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { NotificationContainer, NotificationManager } from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
 import FontAwesome from 'react-fontawesome';
 
 const axios = require('axios');
@@ -10,13 +8,13 @@ class deletePopUp extends Component {
     delete = () => {
         axios.delete(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods/${this.props.id}`)
             .then(() => {
-                NotificationManager.success('محصول مورد نظر با موفقیت حذف شد')
+
                 axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods').then((res) => {
                     this.props.updateData(res.data)
                 })
-                this.props.closePopUp()
+                this.props.closePopUp('success')
             })
-            .catch(() => NotificationManager.error('خطایی پیش آمده'))
+            .catch(() => this.props.closePopUp())
     }
     mouseHandle = (event) => {
         let x = event.clientX
@@ -31,7 +29,6 @@ class deletePopUp extends Component {
     render() {
         return (
             <Fragment>
-                <NotificationContainer />
                 <div className="popUp">
                     <div className="close" id="close" onMouseLeave={this.mouseLeaveHandle} onMouseMove={this.mouseHandle} onClick={this.props.closePopUp}></div>
                     <FontAwesome

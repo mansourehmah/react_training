@@ -52,10 +52,6 @@ class AddItem extends Component {
                     this.props.updateData(res.data)
                 })
             })
-
-        // let foods = this.props.foods
-        // foods.push(this.state.food)
-        // this.props.updateData()
         this.setState({
             food: {
                 image: '',
@@ -73,7 +69,7 @@ class AddItem extends Component {
             document.getElementById('addTitle').style.border = "1px solid red"
             disable++
         }
-        if (this.state.food.price.length == 0 || this.state.food.price.search(/[a-z]/g) >= 0) {
+        if (this.state.food.price.length === 0 || this.state.food.price.search(/[a-z]/g) >= 0) {
             document.getElementById('addPrice').style.border = "1px solid red"
             disable++
         }
@@ -88,7 +84,7 @@ class AddItem extends Component {
             })
             disable++
         }
-        if (disable == 0) {
+        if (disable === 0) {
             this.setState({ disable: false })
         }
         else {
