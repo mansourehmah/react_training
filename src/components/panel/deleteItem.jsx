@@ -1,25 +1,23 @@
 import React, { Component, Fragment } from 'react';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-const axios = require('axios');
+import DeletePopUp from './deleteItem/deletePopUp'
 
 class DeleteItem extends Component {
     constructor() {
         super()
         this.state = {
-            deleteMsg: ''
+            deleteMsg: '',
+            popUp: false,
+            foodIndex: null,
+            id: null
         }
     }
-
-    delete = (id, index) => {
-        axios.delete(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods/${id}`)
-            .then(() => {
-                NotificationManager.success('محصول مورد نظر با موفقیت حذف شد')
-                let foods = this.props.foods
-                foods.splice(index, 1)
-                this.props.updateData(foods)
-            })
-            .catch(() => NotificationManager.error('خطایی پیش آمده'))
+    setPopUp = (id, index) => {
+        this.setState({ popUp: !this.state.popUp, foodIndex: index, id: parseInt(id) })
+    }
+    closePopUp = () => {
+        this.setState({ popUp: !this.state.popUp })
     }
     render() {
         return (<Fragment>
@@ -27,7 +25,7 @@ class DeleteItem extends Component {
             <div className="delete-item">
                 {this.props.foods.map((food, index) => {
                     return (
-                        <div key={'delete-' + food.id} onClick={() => this.delete(food.id, index)} className="item-wraper">
+                        <div key={'delete-' + food.id} onClick={() => { this.setPopUp(food.id, index) }} className="item-wraper">
                             <h2>
                                 {food.title}</h2>
                             <h3>{food.price}</h3>
@@ -35,8 +33,8 @@ class DeleteItem extends Component {
                         </div>
                     )
                 })}
-
             </div>
+            {this.state.popUp === false ? '' : <DeletePopUp closePopUp={this.closePopUp} id={this.state.id} foodIndex={this.state.foodIndex} foods={this.props.foods} updateData={this.props.updateData} />}
         </Fragment>);
     }
 }
