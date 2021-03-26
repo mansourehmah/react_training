@@ -1,0 +1,29 @@
+.orders {
+    .orders-wraper {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        .orderCard {
+            width: 300px;
+            margin: 15px;
+            height: 400px;
+            background-color: #bfc0c0;
+            color: #2d3142;
+            padding: 15px;
+            .orderList-title {
+                text-align: right;
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            .orderList-wraper {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                span {
+                    padding: 2px 5px;
+                }
+            }
+        }
+    }
+}

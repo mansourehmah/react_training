@@ -22,14 +22,14 @@ class Orders extends Component {
         console.log(this.state.orders)
         return (
             <Fragment>
-                <div className="order">
+                <div className="orders">
                     <div>
                         <h2 className="title">سفارشات</h2>
                     </div>
                     <div className="orders-wraper">
                         {this.state.orders.map((order, index) => {
                             return (
-                                <div key={'index-' + index}>
+                                <div key={'index-' + index} className="order">
                                     <OrderCard order={order} />
                                 </div>
                             )

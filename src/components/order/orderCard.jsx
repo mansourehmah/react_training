@@ -5,7 +5,20 @@ class OrderCard extends Component {
     render() {
         return (
             <Fragment>
-                <div className="orderCard">{this.props.order.name}</div>
+                <div className="orderCard">
+                    <div className="orderList">
+                        <span className="orderList-title"> : محصولات سفارش داده شده</span>
+                        <div className="orderList-wraper">
+                            {this.props.order.orderList.map((order, index) => {
+                                return (
+                                    <span key={'orderlist-' + index}>
+                                        {order}
+                                    </span>
+                                )
+                            })}
+                        </div>
+                    </div>
+                </div>
             </Fragment>
         );
     }
