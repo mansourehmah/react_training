@@ -15,9 +15,8 @@ class Panel extends Component {
     }
 
     updateData = (val) => {
-        this.setState({
-            foods: val
-        })
+        this.setState({ foods: val })
+
     }
     componentDidMount() {
         axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods')

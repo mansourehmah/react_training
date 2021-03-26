@@ -11,14 +11,12 @@ class deletePopUp extends Component {
         axios.delete(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods/${this.props.id}`)
             .then(() => {
                 NotificationManager.success('محصول مورد نظر با موفقیت حذف شد')
-                let foods = this.props.foods
-                foods.splice(this.props.foodIndex, 1)
-                this.props.updateData(foods)
+                axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods').then((res) => {
+                    this.props.updateData(res.data)
+                })
+                this.props.closePopUp()
             })
             .catch(() => NotificationManager.error('خطایی پیش آمده'))
-    }
-    cancle = () => {
-
     }
     mouseHandle = (event) => {
         let x = event.clientX

@@ -45,10 +45,17 @@ class AddItem extends Component {
         if (this.state.food.image === '') {
             this.state.food.image = 'https://cdn4.iconfinder.com/data/icons/ui-beast-3/32/ui-49-512.png'
         }
-        axios.post(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods`, this.state.food)
-        let foods = this.props.foods
-        foods.push(this.state.food)
-        this.props.updateData(foods)
+        axios
+            .post(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods`, this.state.food)
+            .then(() => {
+                axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods').then((res) => {
+                    this.props.updateData(res.data)
+                })
+            })
+
+        // let foods = this.props.foods
+        // foods.push(this.state.food)
+        // this.props.updateData()
         this.setState({
             food: {
                 image: '',

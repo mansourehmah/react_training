@@ -55,9 +55,9 @@ class PopUp extends Component {
         axios.put(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods/${this.state.food.id}`, this.state.food)
             .then(() => {
                 NotificationManager.success('تغییرات با موفقیت ذخیره شد')
-                let foods = this.props.foods
-                foods[this.props.foodIndex] = this.state.food
-                this.props.updateData(foods)
+                axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods').then((res) => {
+                    this.props.updateData(res.data)
+                })
             })
             .catch(() => NotificationManager.error('خطایی پیش آمده'))
 
