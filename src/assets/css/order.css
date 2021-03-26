@@ -20,7 +20,7 @@
 
 .orders .orders-wraper .orderCard .orderList,
 .orders .orders-wraper .orderCard .time,
-.orders .orders-wraper .orderCard .info {
+.orders .orders-wraper .orderCard .info, .orders .orders-wraper .orderCard .status {
   margin-bottom: 10px;
 }
 
