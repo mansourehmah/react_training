@@ -6,13 +6,13 @@ class ItemSlider extends Component {
         var settings = {
             dots: true,
             infinite: true,
-            slidesToShow: 3,
+            slidesToShow: 4,
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 2000,
             pauseOnHover: true
         };
-        if (this.props.foods.length < 3) {
+        if (this.props.foods.length < 4) {
             settings.slidesToShow = this.props.foods.length
         }
         return (
