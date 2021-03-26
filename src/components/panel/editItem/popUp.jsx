@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 const axios = require('axios');
 
 class PopUp extends Component {
@@ -49,10 +51,14 @@ class PopUp extends Component {
             this.state.food.image = 'https://cdn4.iconfinder.com/data/icons/ui-beast-3/32/ui-49-512.png'
         }
         axios.put(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods/${this.state.food.id}`, this.state.food)
-        let foods = this.props.foods
-        foods[this.props.foodIndex] = this.state.food
-        this.props.updateData(foods)
-        this.props.closePopUp()
+            .then(() => {
+                NotificationManager.success('تغییرات با موفقیت ذخیره شد')
+                let foods = this.props.foods
+                foods[this.props.foodIndex] = this.state.food
+                this.props.updateData(foods)
+            })
+            .catch(() => NotificationManager.error('خطایی پیش آمده'))
+
     }
 
     formValidation = () => {
@@ -83,19 +89,24 @@ class PopUp extends Component {
         }
     }
     render() {
-        return (<div className="popUp">
-            <div className="close" onClick={this.props.closePopUp}></div>
-            <div className="popUp-wraper">
-                <label htmlFor="editTitle">عنوان محصول</label>
-                <input type="text" id="editTitle" value={this.state.food.title} onKeyUp={this.formValidation} onChange={(e) => this.changeValue(e.target.value, 'title')} />
-                <label htmlFor="editPrice">قیمت</label>
-                <input type="text" id="editPrice" value={this.state.food.price} onKeyUp={this.formValidation} onChange={(e) => this.changeValue(e.target.value, 'price')} />
-                <span>آدرس عکس را وارد کنید</span>
-                <input type="text" value={this.state.food.image} onKeyUp={this.formValidation} onChange={(e) => this.changeValue(e.target.value, 'image')} />
-                <button onClick={this.submite} disabled={this.state.disable}>ثبت تغییرات</button>
-            </div>
+        return (
+            <Fragment>
+                <NotificationContainer />
+                <div className="popUp">
+                    <div className="close" onClick={this.props.closePopUp}></div>
+                    <div className="popUp-wraper">
+                        <label htmlFor="editTitle">عنوان محصول</label>
+                        <input type="text" id="editTitle" value={this.state.food.title} onKeyUp={this.formValidation} onChange={(e) => this.changeValue(e.target.value, 'title')} />
+                        <label htmlFor="editPrice">قیمت</label>
+                        <input type="text" id="editPrice" value={this.state.food.price} onKeyUp={this.formValidation} onChange={(e) => this.changeValue(e.target.value, 'price')} />
+                        <span>آدرس عکس را وارد کنید</span>
+                        <input type="text" value={this.state.food.image} onKeyUp={this.formValidation} onChange={(e) => this.changeValue(e.target.value, 'image')} />
+                        <button onClick={this.submite} disabled={this.state.disable}>ثبت تغییرات</button>
+                    </div>
 
-        </div>);
+                </div>
+            </Fragment>
+        );
     }
 }
 
