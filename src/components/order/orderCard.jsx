@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-class OrderCart extends Component {
+class OrderCard extends Component {
     state = {}
     render() {
         return (
@@ -11,4 +11,4 @@ class OrderCart extends Component {
     }
 }
 
-export default OrderCart;
+export default OrderCard;

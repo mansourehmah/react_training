@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import OrderCart from './order/orderCart'
+import OrderCard from './order/orderCard'
 import '../assets/css/order.css'
 
 const axios = require('axios');
@@ -30,7 +30,7 @@ class Orders extends Component {
                         {this.state.orders.map((order, index) => {
                             return (
                                 <div key={'index-' + index}>
-                                    <OrderCart order={order} />
+                                    <OrderCard order={order} />
                                 </div>
                             )
                         })}
