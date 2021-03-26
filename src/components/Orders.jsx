@@ -11,11 +11,11 @@ class Orders extends Component {
         }
     }
     componentDidMount() {
-        // this.props.editLoading(true)
+        this.props.editLoading(true)
         axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/test/orders')
             .then(res => {
                 this.setState({ orders: res.data })
-                // this.props.editLoading(false)
+                this.props.editLoading(false)
             })
     }
     render() {

@@ -21,7 +21,7 @@ class Navbar extends Component {
                     </nav>
                     <Switch>
                         <Route path="/orders">
-                            <Orders />
+                            <Orders loading={this.props.loading} editLoading={this.props.editLoading} />
                         </Route>
                         <Route path="/">
                             <Products loading={this.props.loading} editLoading={this.props.editLoading} />
