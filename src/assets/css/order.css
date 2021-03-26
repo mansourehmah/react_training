@@ -18,7 +18,9 @@
   padding: 15px;
 }
 
-.orders .orders-wraper .orderCard .orderList {
+.orders .orders-wraper .orderCard .orderList,
+.orders .orders-wraper .orderCard .time,
+.orders .orders-wraper .orderCard .info {
   margin-bottom: 10px;
 }
 

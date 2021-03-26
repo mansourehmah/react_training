@@ -25,6 +25,27 @@ class OrderCard extends Component {
                             <span>تاریخ : {this.props.order.date}</span>
                         </div>
                     </div>
+                    <div className="info">
+                        <span className="order-title">: مشخصات مشتری</span>
+                        <div className="order-wraper">
+                            <span>نام : {this.props.order.name}</span>
+                            <span>شماره تماس : {this.props.order.phone}</span>
+                            <span>آدرس: {this.props.order.address}</span>
+                        </div>
+                    </div>
+                    <div className="status">
+                        <span className="order-title">: وضعیت</span>
+                        <div className="order-wraper">
+                            <span>{this.props.order.order_status}</span>
+                        </div>
+                    </div>
+                    <div className="status">
+                        <span className="order-title">: جزئیات پرداخت</span>
+                        <div className="order-wraper">
+                            <span>نحوه پرداخت : {this.props.order.payment_method}</span>
+                            <span>وضعیت پرداخت : {this.props.order.payment_status}</span>
+                        </div>
+                    </div>
                 </div>
             </Fragment>
         );
