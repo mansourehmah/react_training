@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 const axios = require('axios');
 
 class AddItem extends Component {
@@ -48,10 +50,12 @@ class AddItem extends Component {
         axios
             .post(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods`, this.state.food)
             .then(() => {
+                NotificationManager.success('محصول جدید اضافه شد')
                 axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods').then((res) => {
                     this.props.updateData(res.data)
                 })
             })
+            .catch(() => NotificationManager.error('خطایی پیش آمده'))
         this.setState({
             food: {
                 image: '',
@@ -96,6 +100,7 @@ class AddItem extends Component {
     }
     render() {
         return (<Fragment>
+            <NotificationContainer />
             <div className="add-item">
                 <div className="add-wraper">
                     <label htmlFor="addTitle">عنوان محصول</label>
