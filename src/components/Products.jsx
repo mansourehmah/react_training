@@ -19,7 +19,7 @@ class Products extends Component {
     }
     componentDidMount() {
         this.props.editLoading(true)
-        axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods')
+        axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/test/foods')
             .then(res => {
                 this.setState({ foods: res.data })
                 this.props.editLoading(false)

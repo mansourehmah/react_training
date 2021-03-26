@@ -49,10 +49,10 @@ class AddItem extends Component {
         }
         this.props.editLoading(true)
         axios
-            .post(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods`, this.state.food)
+            .post(`https://605cf7f76d85de00170db614.mockapi.io/api/test/foods`, this.state.food)
             .then(() => {
                 NotificationManager.success('محصول جدید اضافه شد')
-                axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods').then((res) => {
+                axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/test/foods').then((res) => {
                     this.props.updateData(res.data)
                     this.props.editLoading(false)
                 })

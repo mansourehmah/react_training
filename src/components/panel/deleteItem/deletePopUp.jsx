@@ -7,10 +7,10 @@ class deletePopUp extends Component {
 
     delete = () => {
         this.props.editLoading(true)
-        axios.delete(`https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods/${this.props.id}`)
+        axios.delete(`https://605cf7f76d85de00170db614.mockapi.io/api/test/foods/${this.props.id}`)
             .then(() => {
 
-                axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/foods/foods').then((res) => {
+                axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/test/foods').then((res) => {
                     this.props.updateData(res.data)
                 })
                 this.props.closePopUp('success')

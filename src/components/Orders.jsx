@@ -1,11 +1,41 @@
 import React, { Component, Fragment } from 'react';
+import OrderCart from './order/orderCart'
 import '../assets/css/order.css'
+
+const axios = require('axios');
 class Orders extends Component {
-    state = {}
+    constructor() {
+        super()
+        this.state = {
+            orders: [],
+        }
+    }
+    componentDidMount() {
+        // this.props.editLoading(true)
+        axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/test/orders')
+            .then(res => {
+                this.setState({ orders: res.data })
+                // this.props.editLoading(false)
+            })
+    }
     render() {
+        console.log(this.state.orders)
         return (
             <Fragment>
-
+                <div className="order">
+                    <div>
+                        <h2 className="title">سفارشات</h2>
+                    </div>
+                    <div className="orders-wraper">
+                        {this.state.orders.map((order, index) => {
+                            return (
+                                <div key={'index-' + index}>
+                                    <OrderCart order={order} />
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
             </Fragment>
         );
     }
