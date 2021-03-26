@@ -12,15 +12,19 @@
 .orders .orders-wraper .orderCard {
   width: 300px;
   margin: 15px;
-  height: 400px;
+  height: 300px;
   background-color: #bfc0c0;
   color: #2d3142;
+}
+
+.orders .orders-wraper .orderCard .wraper {
   padding: 15px;
 }
 
 .orders .orders-wraper .orderCard .orderList,
 .orders .orders-wraper .orderCard .time,
-.orders .orders-wraper .orderCard .info, .orders .orders-wraper .orderCard .status {
+.orders .orders-wraper .orderCard .info,
+.orders .orders-wraper .orderCard .status {
   margin-bottom: 10px;
 }
 

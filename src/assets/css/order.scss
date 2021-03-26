@@ -6,13 +6,16 @@
         .orderCard {
             width: 300px;
             margin: 15px;
-            height: 400px;
+            height: 300px;
             background-color: #bfc0c0;
             color: #2d3142;
-            padding: 15px;
+            .wraper {
+                padding: 15px;
+            }
             .orderList,
             .time,
-            .info , .status {
+            .info,
+            .status {
                 margin-bottom: 10px;
             }
             .order-title {
