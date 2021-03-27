@@ -24,7 +24,6 @@ class Orders extends Component {
 
     updateData = (val) => {
         this.setState({ orders: val })
-        console.log(this.state.orders)
     }
 
     handlePopUp = (index) => {
@@ -34,7 +33,6 @@ class Orders extends Component {
         this.setState({ openPopUP: !this.state.openPopUP })
     }
     render() {
-        console.log('render shod')
         return (
             <Fragment>
                 <div className="orders">

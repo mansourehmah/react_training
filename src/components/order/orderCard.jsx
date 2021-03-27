@@ -9,17 +9,7 @@ class OrderCard extends Component {
             order_status: '',
         }
     }
-    componentDidMount() {
-        switch (this.props.order.order_status) {
-            case 0: this.setState({ order_status: 'ثبت شده' }); break;
-            case 1: this.setState({ order_status: 'در حال آماده سازی' }); break;
-            case 2: this.setState({ order_status: 'ارسال توسط پیک' }); break;
-            case 3: this.setState({ order_status: 'تحویل داده شده' }); break;
-            case 4: this.setState({ order_status: 'لغو شده' }); break;
-        }
-    }
     render() {
-        console.log(this.state.order_status)
         return (
             <Fragment>
                 <div className="orderCard" onClick={() => { this.setState({ openPopUP: !this.state.openPopUP }) }}>
@@ -55,13 +45,19 @@ class OrderCard extends Component {
                             <div className="status">
                                 <span className="order-title">: وضعیت</span>
                                 <div className="order-wraper">
-                                    <span>{this.state.order_status}</span>
+                                    <span>
+                                        {(this.props.order.order_status === 0) ? 'ثبت شده' : ''}
+                                        {(this.props.order.order_status === 1) ? 'در حال آماده سازی' : ''}
+                                        {(this.props.order.order_status === 2) ? 'ارسال توسط پیک' : ''}
+                                        {(this.props.order.order_status === 3) ? 'تحویل داده شده' : ''}
+                                        {(this.props.order.order_status === 4) ? 'لغو شده' : ''}
+                                    </span>
                                 </div>
                             </div>
                             <div className="status">
                                 <span className="order-title">: جزئیات پرداخت</span>
                                 <div className="order-wraper">
-                                    <span> نحوه پرداخت : {(this.props.order.payment_method) ? 'در محل' : 'آنلاین '}
+                                    <span> نحوه پرداخت : {(this.props.order.payment_method) ? 'آنلاین' : 'در محل '}
                                     </span>
                                     <span> وضعیت پرداخت : {(this.props.order.payment_status) ? 'پرداخت شده ' : 'پرداخت نشده'}
                                     </span>

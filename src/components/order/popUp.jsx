@@ -60,7 +60,6 @@ class PopUp extends Component {
                 // NotificationManager.success('تغییرات با موفقیت ذخیره شد')
                 axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/test/orders').then((res) => {
                     this.props.updateData(res.data)
-                    console.log('done :))))')
                     // this.props.editLoading(false)
                 })
             })
