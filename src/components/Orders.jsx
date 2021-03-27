@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import OrderCard from './order/orderCard'
 import '../assets/css/order.css'
+import PopUp from './order/popUp'
 
 const axios = require('axios');
 class Orders extends Component {
@@ -8,6 +9,8 @@ class Orders extends Component {
         super()
         this.state = {
             orders: [],
+            index: null,
+            openPopUP: false,
         }
     }
     componentDidMount() {
@@ -18,8 +21,14 @@ class Orders extends Component {
                 this.props.editLoading(false)
             })
     }
+    handlePopUp = (index) => {
+        this.setState({ index: index, openPopUP: !this.state.openPopUP })
+    }
+    closePopUp = () => {
+        this.setState({ openPopUP: !this.state.openPopUP })
+    }
     render() {
-        console.log(this.state.orders)
+        console.log(this.state.orders[this.state.index])
         return (
             <Fragment>
                 <div className="orders">
@@ -29,11 +38,12 @@ class Orders extends Component {
                     <div className="orders-wraper">
                         {this.state.orders.map((order, index) => {
                             return (
-                                <div key={'index-' + index} className="order">
+                                <div key={'index-' + index} className="order" onClick={() => this.handlePopUp(index)}>
                                     <OrderCard order={order} />
                                 </div>
                             )
                         })}
+                        {(this.state.openPopUP) ? <PopUp closePopUp={this.closePopUp} order={this.state.orders[this.state.index]} /> : ''}
                     </div>
                 </div>
             </Fragment>

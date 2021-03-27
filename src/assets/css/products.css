@@ -315,6 +315,7 @@
 .products .popUp #close-icon,
 .products .popUp #delete-close-icon {
   position: absolute;
+  color: #2d3142;
 }
 
 .products .popUp .popUp-wraper {

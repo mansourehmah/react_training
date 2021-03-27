@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 
+
 class OrderCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
             order_status: '',
-            payment_method: ''
         }
     }
     componentDidMount() {
@@ -22,7 +22,7 @@ class OrderCard extends Component {
         console.log(this.state.order_status)
         return (
             <Fragment>
-                <div className="orderCard">
+                <div className="orderCard" onClick={() => { this.setState({ openPopUP: !this.state.openPopUP }) }}>
                     <Scrollbars style={{ width: 300, height: 300 }}>
                         <div className="wraper">
                             <div className="orderList">
@@ -70,6 +70,7 @@ class OrderCard extends Component {
                         </div>
                     </Scrollbars>
                 </div>
+
             </Fragment>
         );
     }
