@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import FontAwesome from 'react-fontawesome';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css'
 
 const axios = require('axios');
 
@@ -57,14 +59,15 @@ class PopUp extends Component {
     submite = () => {
         axios.put(`https://605cf7f76d85de00170db614.mockapi.io/api/test/orders/${this.state.order.id}`, this.state.order)
             .then(() => {
-                // NotificationManager.success('تغییرات با موفقیت ذخیره شد')
+                NotificationManager.success('تغییرات با موفقیت ذخیره شد')
                 axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/test/orders').then((res) => {
                     this.props.updateData(res.data)
+                    this.setState({ disable: true })
                     // this.props.editLoading(false)
                 })
             })
             .catch(() => {
-                // NotificationManager.error('خطایی پیش آمده')
+                NotificationManager.error('خطایی پیش آمده')
                 // this.props.editLoading(false)
             }
             )
@@ -73,6 +76,7 @@ class PopUp extends Component {
     render() {
         return (
             <Fragment>
+                <NotificationContainer />
                 <div className="popUp">
                     <div className="close" id="close" onMouseLeave={this.mouseLeaveHandle} onMouseMove={this.mouseHandle} onClick={this.props.closePopUp}></div>
                     <FontAwesome
