@@ -2,15 +2,16 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  padding: 0 20px;
 }
 
 .orders .orders-wraper .order {
-  margin: 15px;
+  margin: 15px 10px;
   position: relative;
 }
 
@@ -189,5 +190,47 @@
   -webkit-box-shadow: none;
           box-shadow: none;
   background-color: #fcbca2;
+}
+
+.orders .filters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px 30px;
+  direction: rtl;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.orders .filters .filter-btn {
+  background-color: #2d3142;
+  padding: 10px 30px;
+  direction: rtl;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.orders .filters .filter-btn:hover {
+  color: #787d86;
+}
+
+.orders .filters .filters-wraper {
+  background-color: #2d3142bb;
+  width: 100%;
+  margin: 15px 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.orders .filters .active {
+  height: 200px;
 }
 /*# sourceMappingURL=order.css.map */

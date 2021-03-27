@@ -3,6 +3,7 @@ import OrderCard from './order/orderCard'
 import '../assets/css/order.css'
 import PopUp from './order/popUp'
 import FontAwesome from 'react-fontawesome'
+import Filter from './order/filrer'
 
 const axios = require('axios');
 class Orders extends Component {
@@ -40,6 +41,7 @@ class Orders extends Component {
                     <div>
                         <h2 className="title">سفارشات</h2>
                     </div>
+                    <Filter />
                     <div className="orders-wraper">
                         {this.state.orders.map((order, index) => {
                             return (
