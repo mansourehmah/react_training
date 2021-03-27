@@ -21,6 +21,12 @@ class Orders extends Component {
                 this.props.editLoading(false)
             })
     }
+
+    updateData = (val) => {
+        this.setState({ orders: val })
+        console.log(this.state.orders)
+    }
+
     handlePopUp = (index) => {
         this.setState({ index: index, openPopUP: !this.state.openPopUP })
     }
@@ -28,7 +34,7 @@ class Orders extends Component {
         this.setState({ openPopUP: !this.state.openPopUP })
     }
     render() {
-        console.log(this.state.orders[this.state.index])
+        console.log('render shod')
         return (
             <Fragment>
                 <div className="orders">
@@ -43,7 +49,7 @@ class Orders extends Component {
                                 </div>
                             )
                         })}
-                        {(this.state.openPopUP) ? <PopUp closePopUp={this.closePopUp} order={this.state.orders[this.state.index]} /> : ''}
+                        {(this.state.openPopUP) ? <PopUp updateData={this.updateData} closePopUp={this.closePopUp} order={this.state.orders[this.state.index]} /> : ''}
                     </div>
                 </div>
             </Fragment>

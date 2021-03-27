@@ -1,24 +1,47 @@
 import React, { Component, Fragment } from 'react';
 import FontAwesome from 'react-fontawesome';
 
+const axios = require('axios');
+
 class PopUp extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            order_status: this.props.order.order_status,
-            payment_method: this.props.order.payment_method,
-            payment_status: this.props.order.payment_status,
+            order: {
+                ...this.props.order,
+                order_status: this.props.order.order_status,
+                payment_method: this.props.order.payment_method,
+                payment_status: this.props.order.payment_status,
+            },
             disable: true
         }
     }
     editOrder = (event) => {
-        this.setState({ order_status: event.target.value, disable: false })
+        this.setState({
+            order: {
+                ...this.state.order,
+                order_status: Number(event.target.value)
+            },
+            disable: false
+        })
     }
     editMethod = (event) => {
-        this.setState({ payment_method: Boolean(event.target.value == 'true'), disable: false })
+        this.setState({
+            order: {
+                ...this.state.order,
+                payment_method: Boolean(event.target.value == 'true')
+            },
+            disable: false
+        })
     }
     editStatus = (event) => {
-        this.setState({ payment_status: Boolean(event.target.value == 'true'), disable: false })
+        this.setState({
+            order: {
+                ...this.state.order,
+                payment_status: Boolean(event.target.value == 'true')
+            },
+            disable: false
+        })
     }
 
     mouseHandle = (event) => {
@@ -30,6 +53,22 @@ class PopUp extends Component {
     }
     mouseLeaveHandle = () => {
         document.getElementById('order-close-icon').style.display = "none"
+    }
+    submite = () => {
+        axios.put(`https://605cf7f76d85de00170db614.mockapi.io/api/test/orders/${this.state.order.id}`, this.state.order)
+            .then(() => {
+                // NotificationManager.success('تغییرات با موفقیت ذخیره شد')
+                axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/test/orders').then((res) => {
+                    this.props.updateData(res.data)
+                    console.log('done :))))')
+                    // this.props.editLoading(false)
+                })
+            })
+            .catch(() => {
+                // NotificationManager.error('خطایی پیش آمده')
+                // this.props.editLoading(false)
+            }
+            )
     }
 
     render() {
@@ -47,7 +86,7 @@ class PopUp extends Component {
                             <span>
                                 تغییر وضعیت سفارش
                             </span>
-                            <select name="status" id="order_status" value={this.state.order_status} onChange={this.editOrder}>
+                            <select name="status" id="order_status" value={this.state.order.order_status} onChange={this.editOrder}>
                                 <option value={0}>ثبت شده</option>
                                 <option value={1}>در حال آماده سازی</option>
                                 <option value={2}>ارسال توسط پیک</option>
@@ -60,20 +99,20 @@ class PopUp extends Component {
                                 تغییر نحوه پرداخت
                             </span>
                             <label htmlFor="payment_method_true">پرداخت آنلاین</label>
-                            <input type="radio" id="payment_method_true" value='true' checked={this.state.payment_method} onChange={this.editMethod} />
-                            <label htmlFor="payment_method_false">پرداخت درب منزل</label>
-                            <input type="radio" id="payment_method_false" value='false' checked={!this.state.payment_method} onChange={this.editMethod} />
+                            <input type="radio" id="payment_method_true" value='true' checked={this.state.order.payment_method} onChange={this.editMethod} />
+                            <label htmlFor="payment_method_false">پرداخت در محل</label>
+                            <input type="radio" id="payment_method_false" value='false' checked={!this.state.order.payment_method} onChange={this.editMethod} />
                         </div>
                         <div>
                             <span>
                                 تغییر وضعیت پرداخت
                             </span>
                             <label htmlFor="payment_status_true"> پرداخت شده</label>
-                            <input type="radio" id="payment_status_true" value='true' checked={this.state.payment_status} onChange={this.editStatus} />
+                            <input type="radio" id="payment_status_true" value='true' checked={this.state.order.payment_status} onChange={this.editStatus} />
                             <label htmlFor="payment_status_false"> پرداخت نشده</label>
-                            <input type="radio" id="payment_status_false" value='false' checked={!this.state.payment_status} onChange={this.editStatus} />
+                            <input type="radio" id="payment_status_false" value='false' checked={!this.state.order.payment_status} onChange={this.editStatus} />
                         </div>
-                        <button disabled={this.state.disable}>ثبت تغییرات</button>
+                        <button disabled={this.state.disable} onClick={this.submite}>ثبت تغییرات</button>
                     </div>
                 </div>
             </Fragment>
