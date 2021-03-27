@@ -31,7 +31,7 @@ class PopUp extends Component {
         this.setState({
             order: {
                 ...this.state.order,
-                payment_method: Boolean(event.target.value == 'true')
+                payment_method: Boolean(event.target.value === 'true')
             },
             disable: false
         })
@@ -40,7 +40,7 @@ class PopUp extends Component {
         this.setState({
             order: {
                 ...this.state.order,
-                payment_status: Boolean(event.target.value == 'true')
+                payment_status: Boolean(event.target.value === 'true')
             },
             disable: false
         })

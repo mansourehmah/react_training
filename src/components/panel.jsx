@@ -22,7 +22,6 @@ class Panel extends Component {
         this.setState({ loading: value })
     }
     render() {
-        console.log(this.state.loading)
         return (
             <Fragment>
                 <div>{this.state.loading && <TopBarProgress />}</div>
