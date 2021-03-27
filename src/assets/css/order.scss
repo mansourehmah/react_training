@@ -5,10 +5,24 @@
         flex-wrap: wrap;
         .order {
             margin: 15px;
+            position: relative;
+            #order-edit-icon {
+                position: absolute;
+                left: 5px;
+                top: 5px;
+                padding: 5px;
+                color: #2d3142;
+                cursor: pointer;
+                z-index: 1;
+                &:hover ~ .orderCard {
+                    background-color: #787d86;
+                }
+            }
         }
         .orderCard {
             width: 300px;
             height: 300px;
+            transition: 0.4s;
             background-color: #bfc0c0;
             color: #2d3142;
             .wraper {
@@ -44,6 +58,7 @@
         left: 0;
         background-color: rgba(255, 255, 255, 0.555);
         position: fixed;
+        z-index: 7;
         display: flex;
         justify-content: center;
         align-items: center;

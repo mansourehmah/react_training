@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 
-
 class OrderCard extends Component {
     constructor(props) {
         super(props)
@@ -12,7 +11,7 @@ class OrderCard extends Component {
     render() {
         return (
             <Fragment>
-                <div className="orderCard" onClick={() => { this.setState({ openPopUP: !this.state.openPopUP }) }}>
+                <div className="orderCard" >
                     <Scrollbars style={{ width: 300, height: 300 }}>
                         <div className="wraper">
                             <div className="orderList">

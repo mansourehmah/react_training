@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import OrderCard from './order/orderCard'
 import '../assets/css/order.css'
 import PopUp from './order/popUp'
+import FontAwesome from 'react-fontawesome'
 
 const axios = require('axios');
 class Orders extends Component {
@@ -42,7 +43,13 @@ class Orders extends Component {
                     <div className="orders-wraper">
                         {this.state.orders.map((order, index) => {
                             return (
-                                <div key={'index-' + index} className="order" onClick={() => this.handlePopUp(index)}>
+                                <div key={'index-' + index} className="order">
+                                    <FontAwesome
+                                        onClick={() => this.handlePopUp(index)}
+                                        id="order-edit-icon"
+                                        name="edit"
+                                        size="2x"
+                                    />
                                     <OrderCard order={order} />
                                 </div>
                             )

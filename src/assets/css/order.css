@@ -11,11 +11,28 @@
 
 .orders .orders-wraper .order {
   margin: 15px;
+  position: relative;
+}
+
+.orders .orders-wraper .order #order-edit-icon {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  padding: 5px;
+  color: #2d3142;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.orders .orders-wraper .order #order-edit-icon:hover ~ .orderCard {
+  background-color: #787d86;
 }
 
 .orders .orders-wraper .orderCard {
   width: 300px;
   height: 300px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
   background-color: #bfc0c0;
   color: #2d3142;
 }
@@ -63,6 +80,7 @@
   left: 0;
   background-color: rgba(255, 255, 255, 0.555);
   position: fixed;
+  z-index: 7;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
