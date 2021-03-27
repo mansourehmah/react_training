@@ -8,16 +8,17 @@ class PopUp extends Component {
             order_status: this.props.order.order_status,
             payment_method: this.props.order.payment_method,
             payment_status: this.props.order.payment_status,
+            disable: true
         }
     }
     editOrder = (event) => {
-        this.setState({ order_status: event.target.value })
+        this.setState({ order_status: event.target.value, disable: false })
     }
     editMethod = (event) => {
-        this.setState({ payment_method: Boolean(event.target.value == 'true') })
+        this.setState({ payment_method: Boolean(event.target.value == 'true'), disable: false })
     }
     editStatus = (event) => {
-        this.setState({ payment_status: Boolean(event.target.value == 'true') })
+        this.setState({ payment_status: Boolean(event.target.value == 'true'), disable: false })
     }
 
     mouseHandle = (event) => {
@@ -72,7 +73,7 @@ class PopUp extends Component {
                             <label htmlFor="payment_status_false"> پرداخت نشده</label>
                             <input type="radio" id="payment_status_false" value='false' checked={!this.state.payment_status} onChange={this.editStatus} />
                         </div>
-                        <button>ثبت تغییرات</button>
+                        <button disabled={this.state.disable}>ثبت تغییرات</button>
                     </div>
                 </div>
             </Fragment>
