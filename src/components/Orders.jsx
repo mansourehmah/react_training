@@ -47,7 +47,7 @@ class Orders extends Component {
                                 </div>
                             )
                         })}
-                        {(this.state.openPopUP) ? <PopUp updateData={this.updateData} closePopUp={this.closePopUp} order={this.state.orders[this.state.index]} /> : ''}
+                        {(this.state.openPopUP) ? <PopUp editLoading={this.props.editLoading} updateData={this.updateData} closePopUp={this.closePopUp} order={this.state.orders[this.state.index]} /> : ''}
                     </div>
                 </div>
             </Fragment>

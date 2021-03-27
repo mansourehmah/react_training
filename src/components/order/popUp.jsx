@@ -57,18 +57,19 @@ class PopUp extends Component {
         document.getElementById('order-close-icon').style.display = "none"
     }
     submite = () => {
+        this.props.editLoading(true)
         axios.put(`https://605cf7f76d85de00170db614.mockapi.io/api/test/orders/${this.state.order.id}`, this.state.order)
             .then(() => {
                 NotificationManager.success('تغییرات با موفقیت ذخیره شد')
                 axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/test/orders').then((res) => {
                     this.props.updateData(res.data)
                     this.setState({ disable: true })
-                    // this.props.editLoading(false)
+                    this.props.editLoading(false)
                 })
             })
             .catch(() => {
                 NotificationManager.error('خطایی پیش آمده')
-                // this.props.editLoading(false)
+                this.props.editLoading(false)
             }
             )
     }
