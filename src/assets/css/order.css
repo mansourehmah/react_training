@@ -5,6 +5,10 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 0 20px;
@@ -244,7 +248,7 @@
 }
 
 .orders .filters .filters-wraper .filterBox span {
-  margin: 10px;
+  margin: 5px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -277,5 +281,19 @@
 
 .orders .filters .active {
   height: 300px;
+}
+
+.orders .filters #filter-btn {
+  margin: 0 30px 30px;
+  padding: 5px 30px;
+  font-size: 18px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  color: #2d3142;
+  border: none;
+}
+
+.orders .filters #filter-btn:hover {
+  background-color: #787d86;
 }
 /*# sourceMappingURL=order.css.map */
