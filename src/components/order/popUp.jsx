@@ -78,6 +78,7 @@ class PopUp extends Component {
                     console.log(res.data, _orders)
                     this.props.updateDataForFilter(res.data)
                     this.props.updateData(_orders)
+                    document.getElementById('filter-btn').click()
                     this.setState({ disable: true })
                     this.props.editLoading(false)
                 })

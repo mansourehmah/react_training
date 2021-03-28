@@ -111,7 +111,7 @@ class Filter extends Component {
                                 )
                             })}
                         </div>
-                        <button onClick={this.handleFilter}>عمال فیلتر</button>
+                        <button id="filter-btn" onClick={this.handleFilter}>عمال فیلتر</button>
                     </div>
                 </div>
             </Fragment>
