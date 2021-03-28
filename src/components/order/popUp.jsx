@@ -93,7 +93,6 @@ class PopUp extends Component {
     render() {
         return (
             <Fragment>
-                <NotificationContainer />
                 <div className="popUp">
                     <div className="close" id="close" onMouseLeave={this.mouseLeaveHandle} onMouseMove={this.mouseHandle} onClick={this.props.closePopUp}></div>
                     <FontAwesome

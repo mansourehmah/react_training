@@ -4,6 +4,7 @@ import '../assets/css/order.css'
 import PopUp from './order/popUp'
 import FontAwesome from 'react-fontawesome'
 import Filter from './order/filrer'
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 const axios = require('axios');
 class Orders extends Component {
@@ -22,6 +23,10 @@ class Orders extends Component {
             .then(res => {
                 this.setState({ orders: res.data, orders_for_filter: res.data })
                 this.props.editLoading(false)
+                NotificationManager.success('اطلاعات با موفقیت دریافت شد')
+            })
+            .catch(() => {
+                NotificationManager.error('خطایی رخ داده . لطفا صفحه را مجددا بارگزاری کنید')
             })
     }
 
@@ -40,6 +45,7 @@ class Orders extends Component {
     render() {
         return (
             <Fragment>
+                <NotificationContainer />
                 <div className="orders">
                     <div>
                         <h2 className="title">سفارشات</h2>
