@@ -57,9 +57,9 @@ class PopUp extends Component {
     mouseLeaveHandle = () => {
         document.getElementById('order-close-icon').style.display = "none"
     }
-    filterData = (value, i) => {
+    filterData = (value) => {
         let trueOrder = null
-        this.state.orders.map((order, index) => {
+        this.state.orders.map((order) => {
             if (Number(order.id) === Number(value.id)) {
                 trueOrder = value
             }
@@ -76,7 +76,6 @@ class PopUp extends Component {
                 NotificationManager.success('تغییرات با موفقیت ذخیره شد')
                 axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/test/orders').then((res) => {
                     let _orders = res.data.filter(this.filterData)
-                    console.log(res.data, _orders)
                     this.props.updateDataForFilter(res.data)
                     this.props.updateData(_orders)
                     document.getElementById('filter-btn').click()

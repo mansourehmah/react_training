@@ -67,7 +67,7 @@ class Filter extends Component {
                 case (obj.indexOf('payment_method') >= 0): if (order.payment_method === this.state.value[i]) orders.push(order); break
                 case (obj.indexOf('payment_status') >= 0): if (order.payment_status === this.state.value[i]) orders.push(order); break
                 case (obj.indexOf('all') >= 0): orders.push(order); break
-                default : break;
+                default: break;
             }
             return false
         })
