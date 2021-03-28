@@ -13,13 +13,14 @@ class Orders extends Component {
             orders: [],
             index: null,
             openPopUP: false,
+            orders_for_filter: []
         }
     }
     componentDidMount() {
         this.props.editLoading(true)
         axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/test/orders')
             .then(res => {
-                this.setState({ orders: res.data })
+                this.setState({ orders: res.data, orders_for_filter: res.data })
                 this.props.editLoading(false)
             })
     }
@@ -27,7 +28,9 @@ class Orders extends Component {
     updateData = (val) => {
         this.setState({ orders: val })
     }
-
+    updateDataForFilter = (val) => {
+        this.setState({ orders_for_filter: val })
+    }
     handlePopUp = (index) => {
         this.setState({ index: index, openPopUP: !this.state.openPopUP })
     }
@@ -41,7 +44,7 @@ class Orders extends Component {
                     <div>
                         <h2 className="title">سفارشات</h2>
                     </div>
-                    <Filter orders={this.state.orders}/>
+                    <Filter updateData={this.updateData} orders_for_filter={this.state.orders_for_filter} />
                     <div className="orders-wraper">
                         {this.state.orders.map((order, index) => {
                             return (
@@ -56,7 +59,7 @@ class Orders extends Component {
                                 </div>
                             )
                         })}
-                        {(this.state.openPopUP) ? <PopUp editLoading={this.props.editLoading} updateData={this.updateData} closePopUp={this.closePopUp} order={this.state.orders[this.state.index]} /> : ''}
+                        {(this.state.openPopUP) ? <PopUp editLoading={this.props.editLoading} updateData={this.updateData} updateDataForFilter={this.updateDataForFilter} closePopUp={this.closePopUp} order={this.state.orders[this.state.index]} orders={this.state.orders} /> : ''}
                     </div>
                 </div>
             </Fragment>

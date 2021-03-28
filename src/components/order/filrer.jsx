@@ -6,8 +6,8 @@ class Filter extends Component {
         super()
         this.state = {
             filter: {
-                obj: ['payment_method', 'payment_method', 'order_status', 'order_status', 'order_status', 'order_status', 'order_status', 'payment_status', 'payment_status', 'all'],
-                value: [true, false, 0, 1, 2, 3, 4, true, false, null],
+                obj: ['0payment_method', '1payment_method', '2order_status', '3order_status', '4order_status', '5order_status', '6order_status', '7payment_status', '8payment_status', '9all'],
+                value: [true, false, 0, 1, 2, 3, 4, true, false, true],
                 title: ['پرداخت آنلاین',
                     'پرداخت در محل',
                     'سفارشات ثبت شده',
@@ -20,9 +20,9 @@ class Filter extends Component {
                     'همه محصولات'
                 ],
             },
-            checked: [false, false, false, false, false, false, false, false, false, true],
-            value: null,
-            obj: null,
+            checked: [false, false, false, false, false, false, false, false, false, false],
+            value: [],
+            obj: [],
         }
     }
     handleClick = () => {
@@ -30,30 +30,56 @@ class Filter extends Component {
     }
     handleChecked = (index) => {
         this.setState(state => {
+            let value = []
+            let obj = state.obj
             const checked = state.checked.map((item, i) => {
                 if (i === index) {
+                    //add
+                    if (!this.state.checked[index]) {
+                        value = [...this.state.value, this.state.filter.value[index]]
+                        obj = [...this.state.obj, this.state.filter.obj[index]]
+                    }
+                    //remove
+                    else if (this.state.checked[index]) {
+                        obj = state.obj.filter((objitem, objindex) => {
+                            if (index !== parseInt(objitem)) {
+                                value.push(this.state.value[objindex])
+                                return objitem
+                            }
+                        })
+                    }
                     return !this.state.checked[index]
                 } else {
-                    return item;
+                    return item
                 }
-            });
+            })
             return {
-                checked,
+                checked, value, obj
             }
-        });
-        console.log('hi')
+        })
     }
-
-    filterOrders = (order) => {
-        switch (this.state.obj) {
-            case 'order_status': return (Number(order.order_status) === this.state.value)
-            case 'payment_method': return (order.payment_method === this.state.value)
-            case 'payment_status': return (order.payment_status === this.state.value)
-            default: return (order)
+    filterOrders = (order, index) => {
+        let orders = []
+        this.state.obj.map((obj, i) => {
+            console.log(obj, this.state.value[i], index)
+            switch (true) {
+                case (obj.indexOf('order_status') >= 0): if (Number(order.order_status) === this.state.value[i]) orders.push(order); break
+                case (obj.indexOf('payment_method') >= 0): if (order.payment_method === this.state.value[i]) orders.push(order); break
+                case (obj.indexOf('payment_status') >= 0): if (order.payment_status === this.state.value[i]) orders.push(order); break
+                case (obj.indexOf('all') >= 0): orders.push(order); break
+            }
+        })
+        for (let order of orders.values()) {
+            return order
         }
     }
     handleFilter = () => {
-        console.log(this.props.orders.filter(this.filterOrders))
+        console.log(this.state.checked)
+        console.log(this.state.obj)
+        console.log(this.state.value)
+        let orders = this.props.orders_for_filter.filter(this.filterOrders)
+        console.log(orders)
+        this.props.updateData(orders)
     }
 
     render() {

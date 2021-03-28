@@ -9,6 +9,7 @@ class PopUp extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            orders: this.props.orders,
             order: {
                 ...this.props.order,
                 order_status: this.props.order.order_status,
@@ -56,13 +57,27 @@ class PopUp extends Component {
     mouseLeaveHandle = () => {
         document.getElementById('order-close-icon').style.display = "none"
     }
+    filterData = (value, i) => {
+        let trueOrder = null
+        this.state.orders.map((order, index) => {
+            if (Number(order.id) === Number(value.id)) {
+                trueOrder = value
+            }
+        })
+        if (trueOrder !== null) {
+            return trueOrder
+        }
+    }
     submite = () => {
         this.props.editLoading(true)
         axios.put(`https://605cf7f76d85de00170db614.mockapi.io/api/test/orders/${this.state.order.id}`, this.state.order)
             .then(() => {
                 NotificationManager.success('تغییرات با موفقیت ذخیره شد')
                 axios.get('https://605cf7f76d85de00170db614.mockapi.io/api/test/orders').then((res) => {
-                    this.props.updateData(res.data)
+                    let _orders = res.data.filter(this.filterData)
+                    console.log(res.data, _orders)
+                    this.props.updateDataForFilter(res.data)
+                    this.props.updateData(_orders)
                     this.setState({ disable: true })
                     this.props.editLoading(false)
                 })
