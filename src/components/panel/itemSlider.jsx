@@ -10,9 +10,17 @@ class ItemSlider extends Component {
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 2000,
-            pauseOnHover: true
+            pauseOnHover: true,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        dots: false
+                    }
+                }]
         };
-        if (this.props.foods.length < 4) {
+        if (window.innerWidth >= 767 && this.props.foods.length < 4) {
             settings.slidesToShow = this.props.foods.length
         }
         return (

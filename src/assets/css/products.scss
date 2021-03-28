@@ -1,3 +1,4 @@
+@import "./mixins.scss";
 .products {
     .item-slider {
         .empty {
@@ -82,6 +83,9 @@
             background-color: #2d3142;
             border-radius: 15px;
             padding: 15px;
+            @include not-md {
+                width: 100%;
+            }
             span {
                 font-size: 12px;
                 text-align: center;
@@ -228,6 +232,9 @@
             background-color: #2d3142;
             border-radius: 15px;
             padding: 15px;
+            @include not-md {
+                width: 90%;
+            }
             input {
                 height: 40px;
                 line-height: 40px;

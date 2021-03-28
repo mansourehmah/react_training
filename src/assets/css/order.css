@@ -14,6 +14,14 @@
   padding: 0 20px;
 }
 
+@media screen and (max-width: 767px) {
+  .orders .orders-wraper {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 .orders .orders-wraper .noItem {
   text-align: center;
   font-size: 20px;
@@ -138,6 +146,12 @@
   background-color: #2d3142;
   border-radius: 15px;
   padding: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .orders .popUp .popUp-wraper {
+    width: 90%;
+  }
 }
 
 .orders .popUp .popUp-wraper > div {
@@ -288,6 +302,12 @@
 
 .orders .filters .active {
   height: 300px;
+}
+
+@media screen and (max-width: 767px) {
+  .orders .filters .active {
+    height: 650px;
+  }
 }
 
 .orders .filters #filter-btn {

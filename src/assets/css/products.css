@@ -139,6 +139,12 @@
   padding: 15px;
 }
 
+@media screen and (max-width: 767px) {
+  .products .add-item .add-wraper {
+    width: 100%;
+  }
+}
+
 .products .add-item .add-wraper span {
   font-size: 12px;
   text-align: center;
@@ -339,6 +345,12 @@
   background-color: #2d3142;
   border-radius: 15px;
   padding: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .products .popUp .popUp-wraper {
+    width: 90%;
+  }
 }
 
 .products .popUp .popUp-wraper input {
