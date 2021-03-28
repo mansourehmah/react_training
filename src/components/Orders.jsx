@@ -41,7 +41,7 @@ class Orders extends Component {
                     <div>
                         <h2 className="title">سفارشات</h2>
                     </div>
-                    <Filter />
+                    <Filter orders={this.state.orders}/>
                     <div className="orders-wraper">
                         {this.state.orders.map((order, index) => {
                             return (
