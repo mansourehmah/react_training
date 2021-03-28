@@ -6,8 +6,8 @@ class Filter extends Component {
         super()
         this.state = {
             filter: {
-                name: ['online', 'offline', 'registering', 'updating', 'sending', 'finished', 'cancled', 'all'],
-                value: [false, false, false, false, false, false, false, true],
+                obj: ['payment_method', 'payment_method', 'order_status', 'order_status', 'order_status', 'order_status', 'order_status', 'payment_status', 'payment_status', 'all'],
+                value: [true, false, 0, 1, 2, 3, 4, true, false, null],
                 title: ['پرداخت آنلاین',
                     'پرداخت در محل',
                     'سفارشات ثبت شده',
@@ -15,9 +15,12 @@ class Filter extends Component {
                     'سفارشات در حال ارسال',
                     'سفارشات ارسال شده',
                     'سفارشات لغو شده',
+                    'سفارشات پرداخت شده',
+                    'سفارشات پرداخت نشده',
                     'همه محصولات'
-                ]
+                ],
             },
+            checked: [false, false, false, false, false, false, false, false, false, true],
             value: null,
             obj: null,
         }
@@ -25,13 +28,27 @@ class Filter extends Component {
     handleClick = () => {
         document.getElementById('filters-wraper').classList.toggle('active')
     }
-    editFilter = (index) => { }
+    handleChecked = (index) => {
+        this.setState(state => {
+            const checked = state.checked.map((item, i) => {
+                if (i === index) {
+                    return !this.state.checked[index]
+                } else {
+                    return item;
+                }
+            });
+            return {
+                checked,
+            }
+        });
+        console.log('hi')
+    }
 
     filterOrders = (order) => {
         switch (this.state.obj) {
-            case 'order_status': return (Number(order.order_status === this.state.value))
-            case 'payment_method': return (Number(order.payment_method === this.state.value))
-            case 'payment_status': return (Number(order.payment_status === this.state.value))
+            case 'order_status': return (Number(order.order_status) === this.state.value)
+            case 'payment_method': return (order.payment_method === this.state.value)
+            case 'payment_status': return (order.payment_status === this.state.value)
             default: return (order)
         }
     }
@@ -53,20 +70,20 @@ class Filter extends Component {
                     <div className="filters-wraper" id="filters-wraper">
                         <p>فیلتر کردن سفارشات بر اساس : </p>
                         <div className="filterBox">
-                            {/* {this.state.filter.value.map((filter, index) => {
+                            {this.state.filter.title.map((filter, index) => {
                                 return (
                                     <span key={filter}>
-                                        <label htmlFor={'filter_' + filter.name}>{this.state.filter.title[index]}</label>
+                                        <label htmlFor={'filter_' + index}>{filter}</label>
                                         <input
                                             type="checkbox"
-                                            id={'filter_' + filter.name}
-                                            checked={this.state.filter.value[index]}
-                                            value={this.state.filter.value[index]}
-                                            onChange={()=>{this.setState({ filter : !this.state.filter.value[index]})}}
+                                            id={'filter_' + index}
+                                            checked={this.state.checked[index]}
+                                            value={this.state.checked[index]}
+                                            onChange={() => { this.handleChecked(index) }}
                                         />
                                     </span>
                                 )
-                            })} */}
+                            })}
                         </div>
                         <button onClick={this.handleFilter}>عمال فیلتر</button>
                     </div>
