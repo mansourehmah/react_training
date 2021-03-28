@@ -46,6 +46,7 @@ class Filter extends Component {
                                 value.push(this.state.value[objindex])
                                 return objitem
                             }
+                            return false
                         })
                     }
                     return !this.state.checked[index]
@@ -58,27 +59,28 @@ class Filter extends Component {
             }
         })
     }
-    filterOrders = (order, index) => {
+    filterOrders = (order) => {
         let orders = []
         this.state.obj.map((obj, i) => {
-            console.log(obj, this.state.value[i], index)
             switch (true) {
                 case (obj.indexOf('order_status') >= 0): if (Number(order.order_status) === this.state.value[i]) orders.push(order); break
                 case (obj.indexOf('payment_method') >= 0): if (order.payment_method === this.state.value[i]) orders.push(order); break
                 case (obj.indexOf('payment_status') >= 0): if (order.payment_status === this.state.value[i]) orders.push(order); break
                 case (obj.indexOf('all') >= 0): orders.push(order); break
+                default : break;
             }
+            return false
         })
         for (let order of orders.values()) {
             return order
         }
     }
     handleFilter = () => {
-        console.log(this.state.checked)
-        console.log(this.state.obj)
-        console.log(this.state.value)
-        let orders = this.props.orders_for_filter.filter(this.filterOrders)
-        console.log(orders)
+        let orders
+        if (this.state.checked.indexOf(true) >= 0) {
+            orders = this.props.orders_for_filter.filter(this.filterOrders)
+        }
+        else orders = this.props.orders_for_filter
         this.props.updateData(orders)
     }
 

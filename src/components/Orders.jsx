@@ -59,6 +59,7 @@ class Orders extends Component {
                                 </div>
                             )
                         })}
+                        {this.state.orders.length === 0 ? <p className="noItem">!آیتمی برای نمایش وجود ندارد</p> : ''}
                         {(this.state.openPopUP) ? <PopUp editLoading={this.props.editLoading} updateData={this.updateData} updateDataForFilter={this.updateDataForFilter} closePopUp={this.closePopUp} order={this.state.orders[this.state.index]} orders={this.state.orders} /> : ''}
                     </div>
                 </div>

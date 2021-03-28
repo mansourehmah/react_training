@@ -93,7 +93,12 @@ class PopUp extends Component {
                 },
                 disable: true
             })
-
+        }
+        if (disable > 0) {
+            this.setState({ disable: true })
+        }
+        else if (disable === 0) {
+            this.setState({ disable: false })
         }
     }
     mouseHandle = (event) => {

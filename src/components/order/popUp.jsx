@@ -63,6 +63,7 @@ class PopUp extends Component {
             if (Number(order.id) === Number(value.id)) {
                 trueOrder = value
             }
+            return false
         })
         if (trueOrder !== null) {
             return trueOrder
